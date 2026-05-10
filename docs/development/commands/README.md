@@ -11,6 +11,7 @@
 | Document Search | `rg "<keyword>" docs AGENTS.md README.md` | 関連ドキュメント確認 |
 | File List | `rg --files` | 構成確認 |
 | Git Status | `git status --short` | 変更差分確認 |
+| Placeholder Check | `sh scripts/check-placeholders.sh` | 汎用名や仮IDの置き換え漏れ確認 |
 | Install | `<install-command>` | 利用先プロジェクトで置き換える |
 | Lint | `<lint-command>` | 利用先プロジェクトで置き換える |
 | Unit Test | `<unit-test-command>` | 利用先プロジェクトで置き換える |
@@ -25,3 +26,4 @@
 - 実行できなかった場合は、理由と次に実行すべきコマンドを書く。
 - 利用先プロジェクトでは、`<...>` の仮コマンドを実際のコマンドに置き換える。
 - テストコマンドを変更した場合は、`docs/testing/` と対象specの `test-cases.md` も確認する。
+- テンプレートをコピーした後は `sh scripts/check-placeholders.sh` で、汎用名や仮IDの置き換え漏れを確認する。

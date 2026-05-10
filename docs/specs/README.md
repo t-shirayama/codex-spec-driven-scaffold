@@ -27,6 +27,32 @@ docs/specs/001-feature-name/
 
 `docs/templates/specs/` は新規specのコピー元です。`docs/specs/001-feature-name/` は、コピー後の完成形をイメージしやすくするためのサンプルspecです。利用先プロジェクトでは、サンプルを実機能に置き換えるか、不要であれば削除してテンプレートだけを使ってください。
 
+完成済みの記入例は `docs/examples/001-user-profile-update/` を参照してください。
+
+## Frontmatter
+
+`spec.md` の先頭には、実装可否を機械的に判断しやすいfrontmatterを書きます。
+
+```yaml
+---
+id: SPEC-001
+title: Feature Name
+status: draft
+approved_by: ""
+blocking_open_questions: true
+---
+```
+
+| Field | Required | Meaning |
+|---|---|---|
+| `id` | yes | `SPEC-001` のようなspec ID |
+| `title` | yes | 機能名 |
+| `status` | yes | `template` / `draft` / `review` / `approved` / `implemented` / `deprecated` |
+| `approved_by` | no | 実装承認者。個人利用では空でよい |
+| `blocking_open_questions` | yes | 実装前に解消すべき未決事項があるか |
+
+Codexへ実装を依頼できるのは、原則として `status: approved` かつ `blocking_open_questions: false` のspecだけです。
+
 ## 命名
 
 ```text
@@ -59,9 +85,11 @@ docs/specs/001-feature-name/
 
 Codexへ実装を依頼する前に、対象specで次を確認します。
 
+- [ ] Frontmatterが `status: approved`、`blocking_open_questions: false` になっている。
 - [ ] Summaryがユーザー価値を説明している。
 - [ ] In ScopeとOut of Scopeが分かれている。
 - [ ] Acceptance Criteriaが検証可能な表現になっている。
+- [ ] Acceptance Criteriaの `Verified By` にテストIDまたは手動確認IDがある。
 - [ ] Error BehaviorとEdge Casesに主要な異常系がある。
 - [ ] `plan.md` に変更対象、リスク、検証方法がある。
 - [ ] `tasks.md` が実行可能な作業単位に分かれている。

@@ -10,7 +10,7 @@
 4. Codexまたは開発者が、対象specに必要な最小範囲で実装する。
 5. テストを実行し、結果または実行できない理由を記録する。
 6. レビューで仕様逸脱、テスト不足、更新漏れ、セキュリティや互換性リスクを確認する。
-7. specのStatusを必要に応じて `implemented` に更新する。
+7. specのfrontmatter statusを必要に応じて `implemented` に更新する。
 
 ## Spec Lifecycle
 
@@ -23,6 +23,8 @@
 | `implemented` | 実装済み | 実行結果と残リスクを記録する |
 | `deprecated` | 廃止 | 代替specやADRへリンクする |
 
+実装依頼できるのは、原則として `status: approved` かつ `blocking_open_questions: false` のspecだけです。
+
 ## Branch and Commit
 
 - ブランチ名には対象spec番号または機能名を含める。
@@ -33,7 +35,9 @@
 ## PR Checklist
 
 - [ ] 対象specが明示されている。
+- [ ] 対象specが `status: approved`、`blocking_open_questions: false` である。
 - [ ] 受け入れ条件を満たしている。
+- [ ] Acceptance CriteriaとTest CaseがIDで対応している。
 - [ ] 必要なテストが追加または更新されている。
 - [ ] 関連ドキュメントが更新されている。
 - [ ] 実行したコマンドが説明されている。

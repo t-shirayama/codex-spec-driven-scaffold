@@ -1,8 +1,16 @@
+---
+id: SPEC-XXX
+title: Feature Name
+status: draft
+approved_by: ""
+blocking_open_questions: true
+---
+
 # SPEC-XXX Feature Name
 
 ## Status
 
-draft / review / approved / implemented / deprecated
+Frontmatterの `status` と `blocking_open_questions` を更新する。実装依頼前は `status: approved`、`blocking_open_questions: false` にする。
 
 ## Summary
 
@@ -58,10 +66,12 @@ API変更がない場合は、`api.md` に「API変更なし」と書く。
 
 ## Acceptance Criteria
 
-- [ ] 主要な正常系が期待通り動作する。
-- [ ] 主要な異常系で、ユーザーまたは呼び出し元が原因を理解できる。
-- [ ] 仕様に対応するテストが追加または更新されている。
-- [ ] API、画面、設計、運用に影響がある場合、関連ドキュメントが更新されている。
+| AC ID | Acceptance Criteria | Verified By |
+|---|---|---|
+| AC-001 | 主要な正常系が期待通り動作する。 | UT-001, IT-001 |
+| AC-002 | 主要な異常系で、ユーザーまたは呼び出し元が原因を理解できる。 | UT-002, IT-002 |
+| AC-003 | 仕様に対応するテストが追加または更新されている。 | `test-cases.md` |
+| AC-004 | API、画面、設計、運用に影響がある場合、関連ドキュメントが更新されている。 | Documentation checks |
 
 ## Decision Log
 
@@ -72,3 +82,4 @@ API変更がない場合は、`api.md` に「API変更なし」と書く。
 ## Open Questions
 
 - 未決事項があれば書く。実装前に解決が必要なものは明示する。
+- 実装をブロックする未決事項がある場合は、frontmatterの `blocking_open_questions` を `true` にする。

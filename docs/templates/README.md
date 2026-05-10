@@ -20,6 +20,8 @@
 2. ID、タイトル、関連リンクを利用先プロジェクトの名前へ置き換える。
 3. 未確定の内容は空欄にせず、仮定または未決事項として明記する。
 4. Codexに依頼する前に、受け入れ条件とテスト観点が最低1つ以上あるか確認する。
+5. 実装依頼前に、spec frontmatterを `status: approved`、`blocking_open_questions: false` にする。
+6. Acceptance Criteriaの `Verified By` と `test-cases.md` の `Verified AC` を対応させる。
 
 ## コピー例
 
@@ -43,3 +45,4 @@ docs/specs/001-feature-name/
 - 利用先プロジェクトで使うサンプル値は、サンプルであることが分かる名前にする。
 - 空欄のまま残さず、「なし」「未定」「別specで扱う」のいずれかを明記する。
 - チームの運用が決まったら、テンプレートより利用先プロジェクトのルールを優先する。
+- テンプレートをコピーした後は、`docs/development/commands/placeholder-check.md` の検索式で置き換え漏れを確認する。

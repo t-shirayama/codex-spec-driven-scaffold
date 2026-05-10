@@ -9,6 +9,7 @@
 | Path | 役割 |
 |---|---|
 | `templates/` | 新しい要件、spec、画面仕様、ADRを作るためのコピー元 |
+| `examples/` | 完成済みspecの記入例 |
 | `product/` | プロダクトの目的、背景、対象ユーザー、用語 |
 | `requirements/` | 機能要件と非機能要件 |
 | `specs/` | 機能単位の仕様、計画、タスク、テスト観点、API情報 |
@@ -34,8 +35,10 @@
 
 - `AGENTS.md`
 - `docs/development/README.md`
+- `docs/development/workflow/README.md`
 - `docs/development/coding-standards/README.md`
 - `docs/development/naming/README.md`
+- `docs/development/commands/README.md`
 - `docs/specs/{feature}/spec.md`
 - `docs/specs/{feature}/plan.md`
 - `docs/specs/{feature}/tasks.md`

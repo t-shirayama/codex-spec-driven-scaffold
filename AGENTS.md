@@ -48,6 +48,9 @@ Codexは実装、修正、レビューを行う前に、このファイルのル
 
 ## 実装ルール
 
+- 実装に入る前に、対象specのfrontmatterを確認する。
+- `status: approved` ではないspecは実装しない。ただし、spec作成、レビュー、ドキュメント整備だけを依頼された場合は対象外とする。
+- `blocking_open_questions: true` のspecは実装しない。未決事項を確認し、必要なら質問またはspec更新を先に行う。
 - `spec.md` の受け入れ条件を満たす。
 - `tasks.md` のチェックリストに沿って作業する。
 - 仕様外の改善やリファクタリングは、必要性が明確な場合だけ行う。
@@ -56,6 +59,7 @@ Codexは実装、修正、レビューを行う前に、このファイルのル
 - 仕様判断をした場合は、`spec.md` のDecision Logに記録する。
 - アーキテクチャ上の大きな判断をした場合は、`docs/architecture/adr/` に記録する。
 - 変更した振る舞いに対応するテスト観点を `test-cases.md` に反映する。
+- Acceptance Criteriaの各AC IDが、`test-cases.md` のテストIDまたは手動確認に紐づいていることを確認する。
 
 ## テストルール
 

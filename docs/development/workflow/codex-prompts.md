@@ -18,8 +18,10 @@ spec.md、plan.md、tasks.md、test-cases.md、api.md をそろえ、
 AGENTS.md を読んだ上で、
 docs/specs/{feature}/ の内容に従って実装してください。
 
+対象specは status: approved、blocking_open_questions: false です。
 tasks.md のチェックリストに沿って進め、
 実装、テスト、必要なドキュメント更新まで行ってください。
+Acceptance Criteria と test-cases.md の Verified AC 対応も維持してください。
 仕様にない振る舞いが必要に見える場合は、最小限の仮定を明示してください。
 ```
 

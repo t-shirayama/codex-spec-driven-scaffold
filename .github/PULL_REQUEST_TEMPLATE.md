@@ -6,6 +6,12 @@
 
 - `docs/specs/{feature}/`
 
+## Spec Readiness
+
+- [ ] 対象specは `status: approved`
+- [ ] 対象specは `blocking_open_questions: false`
+- [ ] Acceptance Criteria と Test Case がIDで対応している
+
 ## Checklist
 
 - [ ] `AGENTS.md` と対象specに従っている

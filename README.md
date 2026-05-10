@@ -10,6 +10,8 @@ Codexを活用して仕様駆動開発を進めるためのドキュメントsca
 - Codexが実装前に読むべきドキュメントを `AGENTS.md` で固定できる
 - 要件、画面仕様、ADR、テスト方針、運用影響を実装と同じ流れで更新できる
 - AI生成コードで起きやすい仕様逸脱、テスト不足、ドキュメント更新漏れを減らせる
+- Acceptance CriteriaとTest Caseの対応を追跡できる
+- OpenAI向け提案資料と完成済みexample specを含めて評価しやすくできる
 
 ## このテンプレートの使いどころ
 
@@ -29,8 +31,9 @@ Codexを活用して仕様駆動開発を進めるためのドキュメントsca
 3. `docs/development/commands/README.md` に実際の install / lint / test / build コマンドを書く。
 4. `docs/requirements/` に最初の機能要件と非機能要件を追加する。
 5. `docs/templates/specs/` または `docs/specs/001-feature-name/` をコピーして、対象機能のspecフォルダを作る。
-6. コピー後のspecのStatusを `template` から `draft` に変更し、受け入れ条件とテスト観点を埋める。
-7. Codexに `AGENTS.md` と対象specを読ませて、実装、テスト、ドキュメント更新を依頼する。
+6. コピー後のspec frontmatterで `status: draft` に変更し、受け入れ条件とテスト観点を埋める。
+7. Open Questionsを解消したら `status: approved`、`blocking_open_questions: false` にする。
+8. Codexに `AGENTS.md` と対象specを読ませて、実装、テスト、ドキュメント更新を依頼する。
 
 ```text
 AGENTS.md を読んだ上で、
@@ -46,10 +49,12 @@ docs/specs/001-feature-name/ の内容に従って実装してください。
 AGENTS.md
 README.md
 .github/
+PROPOSAL.md
 
 docs/
 ├── README.md
 ├── templates/
+├── examples/
 ├── product/
 ├── requirements/
 ├── specs/
@@ -64,8 +69,10 @@ docs/
 |---|---|
 | `AGENTS.md` | Codex向けの作業ルール、参照順序、完了条件 |
 | `.github/` | spec起票とPR確認に使うGitHubテンプレート |
+| `PROPOSAL.md` | OpenAI向け提案資料 |
 | `docs/` | 仕様駆動開発に必要なドキュメント全体 |
 | `docs/templates/` | 要件、spec、画面仕様、ADRのコピー元 |
+| `docs/examples/` | 完成済みspecの例 |
 | `docs/product/` | プロダクトの目的、背景、用語 |
 | `docs/requirements/` | 機能要件、非機能要件 |
 | `docs/specs/` | 機能単位の仕様、計画、タスク、テスト観点、API情報 |
@@ -111,11 +118,13 @@ docs/specs/001-feature-name/
 
 | File | 書くこと |
 |---|---|
-| `spec.md` | 背景、スコープ、振る舞い、受け入れ条件、仕様判断 |
+| `spec.md` | frontmatter、背景、スコープ、振る舞い、受け入れ条件、仕様判断 |
 | `plan.md` | 変更対象、実装方針、依存関係、リスク、ロールアウト |
 | `tasks.md` | Codexが順に実行できるチェックリスト |
 | `test-cases.md` | UT、IT、E2Eで確認する観点 |
 | `api.md` | 追加、変更、利用するAPIとエラー仕様 |
+
+受け入れ条件には `AC-001` のようなIDを付け、`test-cases.md` の `Verified AC` と対応させます。
 
 ### 4. 画面や設計を紐付ける
 
@@ -152,6 +161,8 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 
 よく使う依頼文は `docs/development/workflow/codex-prompts.md` にまとめています。
 
+完成例は `docs/examples/001-user-profile-update/` を参照してください。抽象テンプレートだけではなく、実際に埋めたspecの粒度を確認できます。
+
 ## ドキュメント更新の判断
 
 | 変更内容 | 更新先 |
@@ -165,6 +176,25 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 | 環境、リリース、監視に影響する | `docs/operations/` |
 | 開発ルールが変わる | `docs/development/` |
 
+## 実装前のガード
+
+Codexに実装を依頼する対象specは、次の状態にします。
+
+```yaml
+---
+id: SPEC-001
+title: Feature Name
+status: approved
+approved_by: ""
+blocking_open_questions: false
+---
+```
+
+- `status: approved` でないspecは、実装ではなくspec整備の対象です。
+- `blocking_open_questions: true` のspecは、未決事項を解消してから実装します。
+- Acceptance Criteriaの `Verified By` に、対応するテストIDまたは手動確認IDを書きます。
+- `docs/development/commands/placeholder-check.md` のコマンドで、置き換え漏れを確認します。
+
 ## 利用先プロジェクトで最初に置き換えるもの
 
 | 対象 | 置き換える内容 |
@@ -177,6 +207,7 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 | `docs/development/repository-structure/README.md` | 実装コードのディレクトリ構成 |
 | `docs/specs/001-feature-name/` | 最初の実機能spec、または削除してテンプレートだけ運用 |
 | `docs/designs/screens/screen-*` | 実際の画面名、または不要なら削除 |
+| `PROPOSAL.md` | 提案先や利用実績に合わせたProblem、Benefits、Evidence |
 
 ## テンプレートとして配る前のチェック
 
@@ -186,9 +217,12 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 - [ ] `docs/product/glossary/` に重要用語が登録されている
 - [ ] `docs/requirements/functional/feature-area-*` が実際の機能領域名になっている
 - [ ] `docs/specs/001-feature-name/` をコピーして最初の実機能specが作られている
-- [ ] コピー後のspecのStatusが `template` から `draft` または `approved` に変わっている
+- [ ] コピー後のspec frontmatterが `draft` または `approved` に変わっている
+- [ ] 実装対象specは `status: approved`、`blocking_open_questions: false` になっている
+- [ ] Acceptance CriteriaとTest CaseがIDで対応している
 - [ ] 実装リポジトリの構成に合わせて `docs/development/repository-structure/README.md` が更新されている
 - [ ] よく使うコマンドが `docs/development/commands/README.md` に書かれている
+- [ ] placeholder checkを実行し、汎用名や仮コマンドの置き換え漏れを確認している
 - [ ] `.github/PULL_REQUEST_TEMPLATE.md` のチェック項目がチームのレビュー基準に合っている
 
 ## Codex向けスキル
