@@ -11,19 +11,41 @@ Codexを活用して仕様駆動開発を進めるためのドキュメントsca
 - 要件、画面仕様、ADR、テスト方針、運用影響を実装と同じ流れで更新できる
 - AI生成コードで起きやすい仕様逸脱、テスト不足、ドキュメント更新漏れを減らせる
 
-## まずやること
+## このテンプレートの使いどころ
+
+このscaffoldは、Codexへ「何を作るか」「どう確認するか」「何を更新したら完了か」を同じ型で渡すための土台です。
+
+- 新規プロダクトの初期ドキュメント構成をそろえる
+- 既存プロダクトへspec駆動の開発フローを後付けする
+- Codexに実装、テスト、ドキュメント更新、レビューを一貫した前提で依頼する
+- 仕様判断や設計判断を、後から追える場所へ残す
+
+このリポジトリ自体にはアプリケーションコードを含めません。利用先プロジェクトでは、このdocs構成を実装コードのリポジトリへ持ち込み、プロダクト固有の名前、要件、コマンド、設計に置き換えて使います。
+
+## 最短セットアップ
 
 1. このリポジトリをテンプレートとしてコピーする。
 2. `README.md`、`AGENTS.md`、`docs/product/` を利用先プロジェクトの名前と目的に合わせて更新する。
-3. `docs/requirements/` に機能要件と非機能要件を追加する。
-4. `docs/specs/001-feature-name/` をコピーして、対象機能のspecフォルダを作る。
-5. Codexに `AGENTS.md` と対象specを読ませて、実装、テスト、ドキュメント更新を依頼する。
+3. `docs/development/commands/README.md` に実際の install / lint / test / build コマンドを書く。
+4. `docs/requirements/` に最初の機能要件と非機能要件を追加する。
+5. `docs/templates/specs/` または `docs/specs/001-feature-name/` をコピーして、対象機能のspecフォルダを作る。
+6. コピー後のspecのStatusを `template` から `draft` に変更し、受け入れ条件とテスト観点を埋める。
+7. Codexに `AGENTS.md` と対象specを読ませて、実装、テスト、ドキュメント更新を依頼する。
+
+```text
+AGENTS.md を読んだ上で、
+docs/specs/001-feature-name/ の内容に従って実装してください。
+
+実装、テスト、必要なドキュメント更新まで行ってください。
+仕様にない振る舞いが必要に見える場合は、最小限の仮定を明示してください。
+```
 
 ## フォルダ構成
 
 ```text
 AGENTS.md
 README.md
+.github/
 
 docs/
 ├── README.md
@@ -41,6 +63,7 @@ docs/
 | Path | 役割 |
 |---|---|
 | `AGENTS.md` | Codex向けの作業ルール、参照順序、完了条件 |
+| `.github/` | spec起票とPR確認に使うGitHubテンプレート |
 | `docs/` | 仕様駆動開発に必要なドキュメント全体 |
 | `docs/templates/` | 要件、spec、画面仕様、ADRのコピー元 |
 | `docs/product/` | プロダクトの目的、背景、用語 |
@@ -74,7 +97,7 @@ docs/
 
 ### 3. specを作る
 
-機能単位で `docs/specs/` にspecフォルダを作ります。最初は `docs/specs/001-feature-name/` をフォルダごとコピーするのが簡単です。
+機能単位で `docs/specs/` にspecフォルダを作ります。最初は `docs/specs/001-feature-name/` をフォルダごとコピーするか、`docs/templates/specs/` の各テンプレートを使って作るのが簡単です。
 
 ```text
 docs/specs/001-feature-name/
@@ -127,6 +150,8 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 仕様逸脱、テスト不足、ドキュメント更新漏れを優先して指摘してください。
 ```
 
+よく使う依頼文は `docs/development/workflow/codex-prompts.md` にまとめています。
+
 ## ドキュメント更新の判断
 
 | 変更内容 | 更新先 |
@@ -140,6 +165,19 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 | 環境、リリース、監視に影響する | `docs/operations/` |
 | 開発ルールが変わる | `docs/development/` |
 
+## 利用先プロジェクトで最初に置き換えるもの
+
+| 対象 | 置き換える内容 |
+|---|---|
+| `README.md` | プロジェクト名、概要、セットアップ方法 |
+| `AGENTS.md` | Codexが読むべき実装ルール、参照順序、完了条件 |
+| `docs/product/` | 目的、対象ユーザー、用語 |
+| `docs/requirements/functional/feature-area-*` | 実際の機能領域名と要件 |
+| `docs/development/commands/README.md` | 利用先プロジェクトの実コマンド |
+| `docs/development/repository-structure/README.md` | 実装コードのディレクトリ構成 |
+| `docs/specs/001-feature-name/` | 最初の実機能spec、または削除してテンプレートだけ運用 |
+| `docs/designs/screens/screen-*` | 実際の画面名、または不要なら削除 |
+
 ## テンプレートとして配る前のチェック
 
 - [ ] `README.md` の説明が利用先プロジェクト名に置き換わっている
@@ -151,6 +189,7 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 - [ ] コピー後のspecのStatusが `template` から `draft` または `approved` に変わっている
 - [ ] 実装リポジトリの構成に合わせて `docs/development/repository-structure/README.md` が更新されている
 - [ ] よく使うコマンドが `docs/development/commands/README.md` に書かれている
+- [ ] `.github/PULL_REQUEST_TEMPLATE.md` のチェック項目がチームのレビュー基準に合っている
 
 ## Codex向けスキル
 

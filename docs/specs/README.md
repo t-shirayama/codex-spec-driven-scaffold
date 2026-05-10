@@ -25,6 +25,8 @@ docs/specs/001-feature-name/
 | `test-cases.md` | どう確認するか |
 | `api.md` | APIの追加、変更、利用内容 |
 
+`docs/templates/specs/` は新規specのコピー元です。`docs/specs/001-feature-name/` は、コピー後の完成形をイメージしやすくするためのサンプルspecです。利用先プロジェクトでは、サンプルを実機能に置き換えるか、不要であれば削除してテンプレートだけを使ってください。
+
 ## 命名
 
 ```text
@@ -52,3 +54,25 @@ docs/specs/001-feature-name/
 - `deprecated`: 廃止
 
 `template` はこのscaffoldのサンプルだけで使います。利用先プロジェクトでコピーしたspecは、内容を書き始めた時点で `draft` に変更してください。
+
+## Ready for Implementation
+
+Codexへ実装を依頼する前に、対象specで次を確認します。
+
+- [ ] Summaryがユーザー価値を説明している。
+- [ ] In ScopeとOut of Scopeが分かれている。
+- [ ] Acceptance Criteriaが検証可能な表現になっている。
+- [ ] Error BehaviorとEdge Casesに主要な異常系がある。
+- [ ] `plan.md` に変更対象、リスク、検証方法がある。
+- [ ] `tasks.md` が実行可能な作業単位に分かれている。
+- [ ] `test-cases.md` に単体、統合、E2Eまたは手動確認の判断がある。
+- [ ] API変更がない場合も `api.md` に「API変更なし」と書かれている。
+
+## Split Guidelines
+
+1つのspecが大きくなりすぎる場合は、次の単位で分割します。
+
+- ユーザーが得る価値が別である。
+- 画面、API、DB変更のリリースタイミングが別である。
+- テスト観点やリスクが独立している。
+- 実装PRが大きくなり、レビューで仕様追跡しにくい。

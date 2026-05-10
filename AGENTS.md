@@ -20,15 +20,16 @@ Codexは実装、修正、レビューを行う前に、このファイルのル
 
 1. `docs/README.md`
 2. `docs/development/README.md`
-3. `docs/development/coding-standards/README.md`
-4. `docs/development/naming/README.md`
-5. `docs/development/commands/README.md`
-6. `docs/specs/{feature}/README.md`
-7. `docs/specs/{feature}/spec.md`
-8. `docs/specs/{feature}/plan.md`
-9. `docs/specs/{feature}/tasks.md`
-10. `docs/specs/{feature}/test-cases.md`
-11. `docs/specs/{feature}/api.md`
+3. `docs/development/workflow/README.md`
+4. `docs/development/coding-standards/README.md`
+5. `docs/development/naming/README.md`
+6. `docs/development/commands/README.md`
+7. `docs/specs/{feature}/README.md`
+8. `docs/specs/{feature}/spec.md`
+9. `docs/specs/{feature}/plan.md`
+10. `docs/specs/{feature}/tasks.md`
+11. `docs/specs/{feature}/test-cases.md`
+12. `docs/specs/{feature}/api.md`
 
 画面やUIが関係する場合は、以下も読む。
 
@@ -81,6 +82,13 @@ Codexは実装、修正、レビューを行う前に、このファイルのル
 ## レビュー時の観点
 
 レビューを依頼された場合は、次の順に確認する。
+
+参照するもの:
+
+- `docs/development/review/README.md`
+- 対象specの `spec.md`、`plan.md`、`tasks.md`、`test-cases.md`、`api.md`
+
+確認順:
 
 1. 仕様逸脱や受け入れ条件の未達がないか。
 2. 重要なテストが不足していないか。
