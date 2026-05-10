@@ -2,16 +2,17 @@
 
 このリポジトリは、Codexを活用した仕様駆動開発のscaffoldです。
 
-Codexは実装・修正・レビューを行う前に、以下のルールに従ってください。
+Codexは実装、修正、レビューを行う前に、このファイルのルールに従ってください。
 
 ## 基本方針
 
-- 日本語で簡潔かつ丁寧に回答してください。
+- 日本語で簡潔かつ丁寧に回答する。
 - 仕様に書かれていない振る舞いを勝手に実装しない。
 - 不明点がある場合は、最小限の仮定を置き、その仮定を明示する。
 - 実装、テスト、ドキュメント更新を一体で扱う。
 - 変更範囲は対象specに必要なものへ絞る。
 - プロジェクト固有の機能名は、scaffoldの汎用名から置き換えて使う。
+- 既存の未コミット変更がある場合は、ユーザーの変更として扱い、無断で戻さない。
 
 ## 実装前に読むもの
 
@@ -21,31 +22,39 @@ Codexは実装・修正・レビューを行う前に、以下のルールに従
 2. `docs/development/README.md`
 3. `docs/development/coding-standards/README.md`
 4. `docs/development/naming/README.md`
-5. `docs/specs/{feature}/README.md`
-6. `docs/specs/{feature}/spec.md`
-7. `docs/specs/{feature}/plan.md`
-8. `docs/specs/{feature}/tasks.md`
-9. `docs/specs/{feature}/test-cases.md`
-10. `docs/specs/{feature}/api.md`
+5. `docs/development/commands/README.md`
+6. `docs/specs/{feature}/README.md`
+7. `docs/specs/{feature}/spec.md`
+8. `docs/specs/{feature}/plan.md`
+9. `docs/specs/{feature}/tasks.md`
+10. `docs/specs/{feature}/test-cases.md`
+11. `docs/specs/{feature}/api.md`
 
 画面やUIが関係する場合は、以下も読む。
 
 - `docs/designs/README.md`
 - `docs/designs/screens/{screen}/README.md`
+- `docs/designs/screens/{screen}/states.md`
 
 設計判断が関係する場合は、以下も読む。
 
 - `docs/architecture/README.md`
 - `docs/architecture/adr/README.md`
 
+運用影響がある場合は、以下も読む。
+
+- `docs/operations/README.md`
+
 ## 実装ルール
 
-- `spec.md` の受け入れ条件を満たすこと。
-- `tasks.md` のチェックリストに沿って作業すること。
-- API変更がある場合は、対象specの `api.md` を更新すること。
-- 画面変更がある場合は、`docs/designs/screens/` を更新すること。
-- 仕様判断をした場合は、`spec.md` の Decision Log に記録すること。
-- アーキテクチャ上の大きな判断をした場合は、`docs/architecture/adr/` に記録すること。
+- `spec.md` の受け入れ条件を満たす。
+- `tasks.md` のチェックリストに沿って作業する。
+- 仕様外の改善やリファクタリングは、必要性が明確な場合だけ行う。
+- API変更がある場合は、対象specの `api.md` を更新する。
+- 画面変更がある場合は、`docs/designs/screens/` を更新する。
+- 仕様判断をした場合は、`spec.md` のDecision Logに記録する。
+- アーキテクチャ上の大きな判断をした場合は、`docs/architecture/adr/` に記録する。
+- 変更した振る舞いに対応するテスト観点を `test-cases.md` に反映する。
 
 ## テストルール
 
@@ -69,14 +78,25 @@ Codexは実装・修正・レビューを行う前に、以下のルールに従
 - `docs/architecture/adr/`
 - `docs/operations/`
 
+## レビュー時の観点
+
+レビューを依頼された場合は、次の順に確認する。
+
+1. 仕様逸脱や受け入れ条件の未達がないか。
+2. 重要なテストが不足していないか。
+3. API、画面、設計、運用のドキュメント更新漏れがないか。
+4. セキュリティ、データ破壊、権限、互換性のリスクがないか。
+5. 既存の命名、構成、エラーハンドリング方針に沿っているか。
+
+指摘は具体的なファイルパスと行番号を根拠にする。
+
 ## 技術負債監査
 
 ユーザーが技術負債監査、コードヘルスチェック、リファクタリング優先順位、保守性レビューを求めた場合は、以下を参照する。
 
 - `docs/development/skills/tech-debt-audit/SKILL.md`
 
-監査結果は、具体的なファイルパスと行番号を根拠として提示する。
-根拠のない一般論だけで判断しない。
+監査結果は、具体的なファイルパスと行番号を根拠として提示する。根拠のない一般論だけで判断しない。
 
 ## 完了条件
 

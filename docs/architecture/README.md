@@ -1,14 +1,25 @@
 # Architecture
 
-システム設計とアーキテクチャ上の意思決定を管理する。
+システム設計とアーキテクチャ上の意思決定を管理します。
+
+実装方法の詳細ではなく、長く残る構造、責務境界、制約、判断理由を記録します。
 
 ## Structure
 
-- `overview/`
-- `data-model/`
-- `frontend/`
-- `backend/`
-- `security/`
-- `testing/`
-- `infra/`
-- `adr/`
+| Path | 役割 |
+|---|---|
+| `overview/` | 全体構成 |
+| `data-model/` | データモデル、データフロー |
+| `frontend/` | フロントエンド設計 |
+| `backend/` | バックエンド設計 |
+| `security/` | 認証、認可、脅威モデル |
+| `testing/` | テストアーキテクチャ |
+| `infra/` | インフラ、外部サービス |
+| `adr/` | Architecture Decision Record |
+
+## ADRに残す判断
+
+- 後から変更しづらい判断
+- 複数案から選んだ判断
+- 非機能要件に大きく影響する判断
+- チームやCodexが今後参照すべき制約

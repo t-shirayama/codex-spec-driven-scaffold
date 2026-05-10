@@ -1,19 +1,23 @@
 # Codex Spec-Driven Development Scaffold
 
-このリポジトリは、Codexを活用して仕様駆動開発を進めるためのドキュメント scaffold です。
+Codexを活用して仕様駆動開発を進めるためのドキュメントscaffoldです。
 
-特定の技術スタックやプロダクト機能には依存せず、要件、仕様、設計、テスト、開発ガイド、運用情報を整理するための標準的なフォルダ構成を提供します。
+このリポジトリは、特定の技術スタックやプロダクトに依存しません。要件、仕様、設計、テスト、開発ルール、運用情報を同じ型で整理し、Codexへ一貫した文脈を渡せる状態を作ります。
 
-## 目的
+## 何ができるか
 
-この scaffold の目的は、Codexに対して次の情報を一貫した形で渡せるようにすることです。
+- 新機能ごとに、仕様、実装計画、タスク、テスト観点、API差分をまとめられる
+- Codexが実装前に読むべきドキュメントを `AGENTS.md` で固定できる
+- 要件、画面仕様、ADR、テスト方針、運用影響を実装と同じ流れで更新できる
+- AI生成コードで起きやすい仕様逸脱、テスト不足、ドキュメント更新漏れを減らせる
 
-- 何を満たすべきか
-- 何を作るべきか
-- どう作るべきか
-- どう確認するべきか
-- どのルールに従うべきか
-- どのドキュメントを更新するべきか
+## まずやること
+
+1. このリポジトリをテンプレートとしてコピーする。
+2. `README.md`、`AGENTS.md`、`docs/product/` をプロジェクト名と目的に合わせて更新する。
+3. `docs/requirements/` に機能要件と非機能要件を追加する。
+4. `docs/specs/001-feature-name/` をコピーして、対象機能のspecフォルダを作る。
+5. Codexに `AGENTS.md` と対象specを読ませて、実装、テスト、ドキュメント更新を依頼する。
 
 ## フォルダ構成
 
@@ -34,45 +38,43 @@ docs/
 └── operations/
 ```
 
-## 各フォルダの責務
-
-| Path | Responsibility |
+| Path | 役割 |
 |---|---|
-| `AGENTS.md` | Codex向けの作業ルール、参照順序、完了条件を定義する |
-| `docs/` | 仕様駆動開発に必要なドキュメント全体を管理する |
-| `docs/templates/` | 要件、spec、テスト、画面仕様、ADRなどのテンプレートを管理する |
-| `docs/product/` | プロダクトの目的、背景、用語を管理する |
-| `docs/requirements/` | 機能要件・非機能要件を管理する |
-| `docs/specs/` | 機能単位の仕様、計画、タスク、テスト観点、API情報を管理する |
-| `docs/designs/` | 画面仕様、デザイン資料、画像、UI素材を管理する |
-| `docs/architecture/` | システム設計とアーキテクチャ上の意思決定を管理する |
-| `docs/testing/` | UT / IT / E2E の方針、テスト観点、品質ゲートを管理する |
-| `docs/development/` | 開発ルール、命名規則、設定方針、レビュー観点を管理する |
-| `docs/operations/` | 環境、リリース、監視、障害対応など運用情報を管理する |
+| `AGENTS.md` | Codex向けの作業ルール、参照順序、完了条件 |
+| `docs/` | 仕様駆動開発に必要なドキュメント全体 |
+| `docs/templates/` | 要件、spec、画面仕様、ADRのコピー元 |
+| `docs/product/` | プロダクトの目的、背景、用語 |
+| `docs/requirements/` | 機能要件、非機能要件 |
+| `docs/specs/` | 機能単位の仕様、計画、タスク、テスト観点、API情報 |
+| `docs/designs/` | 画面仕様、デザイン資料、画像、UI素材 |
+| `docs/architecture/` | システム設計、ADR |
+| `docs/testing/` | テスト戦略、UT、IT、E2E、品質ゲート |
+| `docs/development/` | 開発ルール、命名規則、レビュー観点、Codex用スキル |
+| `docs/operations/` | 環境、リリース、監視、障害対応 |
 
-## 開発の進め方
+## 仕様駆動開発の流れ
 
-### 1. プロダクトの前提を整理する
+### 1. プロダクトの前提を置く
 
-最初に `docs/product/` を更新します。
+`docs/product/` に、プロダクトの目的、対象ユーザー、重要な用語を書きます。
 
 - `docs/product/vision/README.md`
 - `docs/product/glossary/README.md`
 
-ここでは、プロダクトの目的、背景、重要な用語を整理します。
+ここが曖昧だと、Codexが同じ言葉を別の意味で扱いやすくなります。最初は短くてかまいません。
 
 ### 2. 要件を定義する
 
-次に `docs/requirements/` に要件を追加します。
+`docs/requirements/` に、システムが満たすべき要件を書きます。
 
-- 機能要件は `docs/requirements/functional/` に追加する
-- 非機能要件は `docs/requirements/non-functional/` に追加する
+- 機能要件: `docs/requirements/functional/`
+- 非機能要件: `docs/requirements/non-functional/`
 
-scaffoldでは `feature-area-01` のような汎用名にしています。実プロジェクトでは、プロジェクトに合わせてフォルダ名を変更してください。
+`feature-area-01` などの汎用名は、実プロジェクトでは `billing`、`account`、`notification` のような具体名へ置き換えてください。
 
-### 3. specを作成する
+### 3. specを作る
 
-機能単位で `docs/specs/` にspecフォルダを作成します。
+機能単位で `docs/specs/` にspecフォルダを作ります。
 
 ```text
 docs/specs/001-feature-name/
@@ -84,74 +86,74 @@ docs/specs/001-feature-name/
 └── api.md
 ```
 
-各ファイルの責務は次の通りです。
-
-| File | Responsibility |
+| File | 書くこと |
 |---|---|
-| `spec.md` | 何を作るか。背景、スコープ、振る舞い、受け入れ条件を書く |
-| `plan.md` | どう作るか。変更対象、依存関係、リスク、実装順序を書く |
-| `tasks.md` | Codexに渡しやすい粒度でタスクを書く |
-| `test-cases.md` | UT / IT / E2E の観点を書く |
-| `api.md` | そのspecに関係するAPI情報を書く |
+| `spec.md` | 背景、スコープ、振る舞い、受け入れ条件、仕様判断 |
+| `plan.md` | 変更対象、実装方針、依存関係、リスク、ロールアウト |
+| `tasks.md` | Codexが順に実行できるチェックリスト |
+| `test-cases.md` | UT、IT、E2Eで確認する観点 |
+| `api.md` | 追加、変更、利用するAPIとエラー仕様 |
 
-### 4. 画面仕様・デザイン資料を紐付ける
+### 4. 画面や設計を紐付ける
 
-画面やUIが関係する場合は、`docs/designs/` を更新します。
+UIが関係する場合は `docs/designs/screens/` に画面仕様を書き、`spec.md` の `Related Designs` へリンクします。
 
-- 画面仕様は `docs/designs/screens/`
-- 画像やモックは `docs/designs/images/`
-- 外部デザイン資料やプロトタイプの参照は `docs/designs/references/`
+設計判断が関係する場合は `docs/architecture/` を更新します。後から変更しづらい判断、複数案から選んだ判断、チームで共有すべきトレードオフは `docs/architecture/adr/` にADRとして残します。
 
-`spec.md` には、対象となる画面仕様へのリンクを `Related Designs` として記述します。
+### 5. Codexへ依頼する
 
-### 5. 設計方針を確認する
-
-実装前に `docs/architecture/` と `docs/development/` を確認します。
-
-特に以下はCodexにも読ませることを推奨します。
-
-- `docs/development/coding-standards/`
-- `docs/development/naming/`
-- `docs/development/repository-structure/`
-- `docs/architecture/README.md`
-
-大きなアーキテクチャ判断を行った場合は、`docs/architecture/adr/` に記録します。
-
-### 6. Codexに実装を依頼する
-
-Codexに依頼するときは、対象specを明示します。
-
-例:
+Codexには対象specを明示します。曖昧な依頼より、参照先を固定した依頼の方が安定します。
 
 ```text
 AGENTS.md を読んだ上で、
 docs/specs/001-feature-name/ の内容に従って実装してください。
 
-実装時は以下も参照してください。
-
-- docs/development/coding-standards/
-- docs/development/naming/
-- docs/designs/screens/
-- docs/testing/
+実装、テスト、必要なドキュメント更新まで行ってください。
+仕様にない振る舞いが必要に見える場合は、最小限の仮定を明示してください。
 ```
 
-### 7. テスト観点を更新する
+UI変更を含む場合:
 
-実装後、`docs/specs/{feature}/test-cases.md` と `docs/testing/` を更新します。
+```text
+docs/designs/screens/{screen}/ も参照してください。
+画面仕様に不足があれば、仮定を明示して関連ドキュメントも更新してください。
+```
 
-- 単体テストの観点
-- 統合テストの観点
-- E2Eテストの観点
-- 品質ゲート
-- カバレッジ方針
+レビューを依頼する場合:
 
-### 8. 運用影響を確認する
+```text
+AGENTS.md と docs/specs/{feature}/ を読んだ上で、
+実装差分をレビューしてください。
+仕様逸脱、テスト不足、ドキュメント更新漏れを優先して指摘してください。
+```
 
-リリース、環境、監視、障害対応に影響がある場合は `docs/operations/` を更新します。
+## ドキュメント更新の判断
+
+| 変更内容 | 更新先 |
+|---|---|
+| 機能の振る舞いが変わる | `docs/specs/{feature}/spec.md`、`test-cases.md`、`tasks.md` |
+| APIが増える、変わる | `docs/specs/{feature}/api.md` |
+| 画面や導線が変わる | `docs/designs/screens/` |
+| 要件そのものが変わる | `docs/requirements/` |
+| 設計判断をした | `docs/architecture/adr/` |
+| テスト方針や品質ゲートが変わる | `docs/testing/` |
+| 環境、リリース、監視に影響する | `docs/operations/` |
+| 開発ルールが変わる | `docs/development/` |
+
+## テンプレートとして配る前のチェック
+
+- [ ] `README.md` の説明が対象プロジェクト名に置き換わっている
+- [ ] `AGENTS.md` の参照順序と完了条件がプロジェクトに合っている
+- [ ] `docs/product/vision/README.md` に目的と対象ユーザーが書かれている
+- [ ] `docs/product/glossary/` に重要用語が登録されている
+- [ ] `docs/requirements/functional/feature-area-*` が実際の機能領域名になっている
+- [ ] `docs/specs/001-feature-name/` をコピーして最初の実機能specが作られている
+- [ ] 実装リポジトリの構成に合わせて `docs/development/repository-structure/README.md` が更新されている
+- [ ] よく使うコマンドが `docs/development/commands/README.md` に書かれている
 
 ## Codex向けスキル
 
-このscaffoldには、Codex向けの汎用的な技術負債監査プロトコルを含めています。
+このscaffoldには、ファイル根拠付きの技術負債監査を行うためのプロトコルを含めています。
 
 ```text
 docs/development/skills/tech-debt-audit/
@@ -161,13 +163,12 @@ docs/development/skills/tech-debt-audit/
 └── report-template.md
 ```
 
-このスキルは、リポジトリ全体または指定した範囲について、ファイル根拠付きの技術負債監査レポートを作成するためのものです。
+技術負債監査、コードヘルスチェック、保守性レビューを依頼するときは、`docs/development/skills/tech-debt-audit/SKILL.md` を参照するようCodexに伝えてください。
 
-## 推奨する運用
+## 運用のコツ
 
-- まずは `docs/specs/001-feature-name/` をコピーして新しいspecを作る
-- 要件、spec、テスト観点を同じPRで更新する
-- Codexには必ず対象specフォルダを明示する
-- 画面仕様はspecに直接書きすぎず、`docs/designs/screens/` を参照する
-- API情報は独立フォルダではなく、各specの `api.md` に書く
-- アーキテクチャ上の大きな判断はADRに残す
+- specは大きくしすぎず、1つのユーザー価値または変更単位で切る
+- 要件、spec、テスト観点、実装差分を同じPRで扱う
+- `tasks.md` はCodexが完了判断できる粒度にする
+- 判断に迷った内容は `spec.md` のDecision LogかADRに残す
+- READMEには使い方を、詳細ルールは `docs/` に置く

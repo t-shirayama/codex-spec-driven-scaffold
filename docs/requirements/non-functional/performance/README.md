@@ -1,9 +1,9 @@
 # Performance
 
-性能、レスポンスタイム、スループット要件を管理する。
+性能、レスポンスタイム、スループット要件を管理します。
 
 ## Requirements
 
-| ID | Summary | Target | Status | Related Specs |
-|---|---|---|---|---|
-| NFR-XXX | TBD | TBD | draft | TBD |
+| ID | Summary | Target | Measurement | Status | Related Specs |
+|---|---|---|---|---|---|
+| NFR-XXX | 要件の概要を書く | 目標値を書く | 測定方法を書く | draft | `docs/specs/{feature}/` |

@@ -1,3 +1,7 @@
 # Happy Paths
 
-正常系の主要業務フローを管理する。
+正常系の主要業務フローを管理します。
+
+| Scenario | Related Specs | Notes |
+|---|---|---|
+| Example Happy Path | `docs/specs/{feature}/` | 補足を書く |

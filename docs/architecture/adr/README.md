@@ -1,6 +1,6 @@
 # ADR
 
-Architecture Decision Recordを管理する。
+Architecture Decision Recordを管理します。
 
 ## Naming
 
@@ -9,8 +9,20 @@ Architecture Decision Recordを管理する。
 0002-example-decision.md
 ```
 
-## ADR list
+## Status
+
+- `proposed`
+- `accepted`
+- `deprecated`
+- `superseded`
+
+## ADR List
 
 | ADR | Status | Summary |
 |---|---|---|
 | 0001 | accepted | ADR運用を開始する |
+
+## Rule
+
+- 判断理由と却下した案を残す。
+- ADRを更新するより、後続ADRで上書きする。
