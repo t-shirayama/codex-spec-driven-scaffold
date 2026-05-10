@@ -34,7 +34,7 @@ docs/specs/001-feature-name/
 
 - 先頭は3桁の連番にする。
 - 後ろは英小文字とハイフンで機能名を書く。
-- 汎用名の `feature-name` は、実プロジェクトの機能名へ置き換える。
+- 汎用名の `feature-name` は、利用先プロジェクトの機能名へ置き換える。
 
 ## Spec一覧
 
@@ -44,8 +44,11 @@ docs/specs/001-feature-name/
 
 ## ステータス
 
+- `template`: scaffold内のコピー元
 - `draft`: 作成中
 - `review`: レビュー中
 - `approved`: 実装可能
 - `implemented`: 実装済み
 - `deprecated`: 廃止
+
+`template` はこのscaffoldのサンプルだけで使います。利用先プロジェクトでコピーしたspecは、内容を書き始めた時点で `draft` に変更してください。

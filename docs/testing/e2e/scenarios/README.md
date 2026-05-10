@@ -4,4 +4,4 @@
 
 | Scenario | Actor | Preconditions | Expected |
 |---|---|---|---|
-| Example Scenario | 利用者を書く | 前提を書く | 期待結果を書く |
+| `<scenario-name>` | 利用者を書く | 前提を書く | 期待結果を書く |

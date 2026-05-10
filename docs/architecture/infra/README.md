@@ -14,4 +14,4 @@
 
 | Service | Purpose | Failure Handling |
 |---|---|---|
-| Example Service | 用途を書く | 失敗時の扱いを書く |
+| `<service-name>` | 用途を書く | 失敗時の扱いを書く |

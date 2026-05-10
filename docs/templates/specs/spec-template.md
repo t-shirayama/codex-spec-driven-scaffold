@@ -28,7 +28,7 @@ UIが関係しない場合は「なし」と書く。
 
 - `docs/specs/{feature}/api.md`
 
-API変更がない場合は、`api.md` に「変更なし」と書く。
+API変更がない場合は、`api.md` に「API変更なし」と書く。
 
 ## Scope
 

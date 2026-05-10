@@ -6,7 +6,7 @@
 
 | Signal | Purpose | Alert Condition |
 |---|---|---|
-| Example Metric | 監視目的を書く | 発報条件を書く |
+| `<metric-name>` | 監視目的を書く | 発報条件を書く |
 
 ## Rule
 

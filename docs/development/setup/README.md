@@ -6,7 +6,7 @@
 
 | Tool | Version | Notes |
 |---|---|---|
-| Example Tool | version | 用途を書く |
+| `<tool-name>` | `<version>` | 用途を書く |
 
 ## Steps
 
@@ -15,4 +15,4 @@
 3. 環境変数を設定する。
 4. テストまたは開発サーバーで動作確認する。
 
-実プロジェクトでは、具体的なコマンドを `docs/development/commands/README.md` にも書いてください。
+利用先プロジェクトでは、具体的なコマンドを `docs/development/commands/README.md` にも書いてください。

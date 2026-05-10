@@ -2,9 +2,9 @@
 
 サービス構成を記述します。
 
-| Service | Responsibility | Dependencies | Notes |
+| Service | 役割 | Dependencies | Notes |
 |---|---|---|---|
-| Example Service | 責務を書く | 依存を書く | 補足を書く |
+| `<service-name>` | 責務を書く | 依存を書く | 補足を書く |
 
 ## Rule
 

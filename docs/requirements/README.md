@@ -4,7 +4,7 @@
 
 要件は「なぜ必要か」「何を満たすか」を書く場所です。実装方法や詳細な画面挙動は、要件ではなく `docs/specs/` や `docs/designs/` に書きます。
 
-## Structure
+## 構成
 
 - `functional/`: 機能要件
 - `non-functional/`: 非機能要件

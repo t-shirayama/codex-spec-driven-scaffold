@@ -6,7 +6,7 @@
 
 | Flow | Source | Destination | Notes |
 |---|---|---|---|
-| Example Flow | 入力元を書く | 出力先を書く | 補足を書く |
+| `<flow-name>` | 入力元を書く | 出力先を書く | 補足を書く |
 
 ## Risks
 

@@ -13,4 +13,4 @@
 
 | Package | Purpose | Reason | Added In |
 |---|---|---|---|
-| example-package | 用途を書く | 採用理由を書く | `docs/specs/{feature}/` |
+| `<package-name>` | 用途を書く | 採用理由を書く | `docs/specs/{feature}/` |

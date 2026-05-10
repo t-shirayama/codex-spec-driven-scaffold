@@ -4,4 +4,4 @@
 
 | Scenario | Related Specs | Notes |
 |---|---|---|
-| Example Edge Case | `docs/specs/{feature}/` | 補足を書く |
+| `<scenario-name>` | `docs/specs/{feature}/` | 補足を書く |

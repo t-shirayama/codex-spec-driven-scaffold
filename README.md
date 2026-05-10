@@ -14,7 +14,7 @@ Codexを活用して仕様駆動開発を進めるためのドキュメントsca
 ## まずやること
 
 1. このリポジトリをテンプレートとしてコピーする。
-2. `README.md`、`AGENTS.md`、`docs/product/` をプロジェクト名と目的に合わせて更新する。
+2. `README.md`、`AGENTS.md`、`docs/product/` を利用先プロジェクトの名前と目的に合わせて更新する。
 3. `docs/requirements/` に機能要件と非機能要件を追加する。
 4. `docs/specs/001-feature-name/` をコピーして、対象機能のspecフォルダを作る。
 5. Codexに `AGENTS.md` と対象specを読ませて、実装、テスト、ドキュメント更新を依頼する。
@@ -70,11 +70,11 @@ docs/
 - 機能要件: `docs/requirements/functional/`
 - 非機能要件: `docs/requirements/non-functional/`
 
-`feature-area-01` などの汎用名は、実プロジェクトでは `billing`、`account`、`notification` のような具体名へ置き換えてください。
+`feature-area-01` などの汎用名は、利用先プロジェクトでは `billing`、`account`、`notification` のような具体名へ置き換えてください。
 
 ### 3. specを作る
 
-機能単位で `docs/specs/` にspecフォルダを作ります。
+機能単位で `docs/specs/` にspecフォルダを作ります。最初は `docs/specs/001-feature-name/` をフォルダごとコピーするのが簡単です。
 
 ```text
 docs/specs/001-feature-name/
@@ -102,7 +102,7 @@ UIが関係する場合は `docs/designs/screens/` に画面仕様を書き、`s
 
 ### 5. Codexへ依頼する
 
-Codexには対象specを明示します。曖昧な依頼より、参照先を固定した依頼の方が安定します。
+Codexには対象specを明示します。曖昧な依頼より、参照先を固定した依頼の方が安定します。実装を依頼するときは、仕様だけでなくテストとドキュメント更新も同じ依頼に含めます。
 
 ```text
 AGENTS.md を読んだ上で、
@@ -142,12 +142,13 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 
 ## テンプレートとして配る前のチェック
 
-- [ ] `README.md` の説明が対象プロジェクト名に置き換わっている
+- [ ] `README.md` の説明が利用先プロジェクト名に置き換わっている
 - [ ] `AGENTS.md` の参照順序と完了条件がプロジェクトに合っている
 - [ ] `docs/product/vision/README.md` に目的と対象ユーザーが書かれている
 - [ ] `docs/product/glossary/` に重要用語が登録されている
 - [ ] `docs/requirements/functional/feature-area-*` が実際の機能領域名になっている
 - [ ] `docs/specs/001-feature-name/` をコピーして最初の実機能specが作られている
+- [ ] コピー後のspecのStatusが `template` から `draft` または `approved` に変わっている
 - [ ] 実装リポジトリの構成に合わせて `docs/development/repository-structure/README.md` が更新されている
 - [ ] よく使うコマンドが `docs/development/commands/README.md` に書かれている
 

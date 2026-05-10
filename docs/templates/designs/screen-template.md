@@ -12,7 +12,7 @@
 
 | Element | Type | Description |
 |---|---|---|
-| Example Element | button / input / table / card | 役割と表示条件を書く |
+| `<element-name>` | button / input / table / card | 役割と表示条件を書く |
 
 ## States
 

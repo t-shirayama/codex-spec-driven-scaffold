@@ -10,4 +10,4 @@
 
 | Threat | Impact | Mitigation |
 |---|---|---|
-| Example Threat | 影響を書く | 対策を書く |
+| `<threat>` | 影響を書く | 対策を書く |

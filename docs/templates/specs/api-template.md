@@ -4,13 +4,13 @@
 
 この機能で追加、変更、利用するAPIを記述する。
 
-API変更がない場合は、このセクションに「API変更なし」と明記する。
+API変更がない場合は、このセクションに「API変更なし」と明記し、以降のセクションは「なし」と書く。
 
 ## Endpoints
 
 | Method | Path | Purpose | Change |
 |---|---|---|---|
-| GET | `/example` | 目的を書く | add / change / use / remove |
+| GET | `/<resource>` | 目的を書く | add / change / use / remove |
 
 ## Request
 

@@ -11,4 +11,4 @@
 
 | Actor | Action | Resource | Allowed |
 |---|---|---|---|
-| Example Actor | 操作を書く | 対象を書く | yes / no |
+| `<actor>` | 操作を書く | 対象を書く | yes / no |

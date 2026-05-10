@@ -8,8 +8,8 @@
 
 | Screen ID | Directory | Related Specs | Notes |
 |---|---|---|---|
-| SCREEN-001 | `screen-01/` | `SPEC-XXX` | 実プロジェクトの画面名へ置き換える |
-| SCREEN-002 | `screen-02/` | `SPEC-XXX` | 実プロジェクトの画面名へ置き換える |
+| SCREEN-001 | `screen-01/` | `SPEC-XXX` | 利用先プロジェクトの画面名へ置き換える |
+| SCREEN-002 | `screen-02/` | `SPEC-XXX` | 利用先プロジェクトの画面名へ置き換える |
 
 ## Naming
 

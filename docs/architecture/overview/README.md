@@ -8,9 +8,9 @@
 
 ## Components
 
-| Component | Responsibility | Notes |
+| Component | 役割 | Notes |
 |---|---|---|
-| Example Component | 責務を書く | 補足を書く |
+| `<component-name>` | 責務を書く | 補足を書く |
 
 ## Data and Control Flow
 

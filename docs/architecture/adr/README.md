@@ -6,7 +6,7 @@ Architecture Decision Recordを管理します。
 
 ```text
 0001-record-architecture-decisions.md
-0002-example-decision.md
+0002-decision-title.md
 ```
 
 ## Status
