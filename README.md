@@ -209,7 +209,7 @@ blocking_open_questions: false
 | `docs/designs/screens/screen-*` | 実際の画面名、または不要なら削除 |
 | `PROPOSAL.md` | 提案先や利用実績に合わせたProblem、Benefits、Evidence |
 
-## テンプレートとして配る前のチェック
+## 利用先プロジェクトで使い始める前のチェック
 
 - [ ] `README.md` の説明が利用先プロジェクト名に置き換わっている
 - [ ] `AGENTS.md` の参照順序と完了条件がプロジェクトに合っている
