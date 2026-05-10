@@ -4,13 +4,13 @@
 
 ## Incident Template
 
-| Item | Description |
-|---|---|
-| Symptom | 何が起きているか |
-| Impact | 誰にどんな影響があるか |
+| Item        | Description                          |
+| ----------- | ------------------------------------ |
+| Symptom     | 何が起きているか                     |
+| Impact      | 誰にどんな影響があるか               |
 | First Check | 最初に確認するログ、メトリクス、画面 |
-| Mitigation | 一時対応 |
-| Escalation | 連絡先や判断基準 |
+| Mitigation  | 一時対応                             |
+| Escalation  | 連絡先や判断基準                     |
 
 ## Rule
 

@@ -2,17 +2,18 @@
 
 このフォルダは、仕様駆動開発で使うドキュメントテンプレートを管理します。
 
-新しい要件、spec、画面仕様、ADRを作成するときは、該当テンプレートをコピーして利用してください。テンプレート内の `XXX`、`<...>`、説明文は、利用先プロジェクトの内容に置き換えます。
+新しい要件、spec、画面仕様、ADRを作成するときは、該当テンプレートをコピーして利用してください。テンプレート内の
+`XXX`、`<...>`、説明文は、利用先プロジェクトの内容に置き換えます。
 
 ## テンプレート一覧
 
-| Path | 用途 |
-|---|---|
-| `requirements/functional-requirement-template.md` | 機能要件 |
-| `requirements/non-functional-requirement-template.md` | 非機能要件 |
-| `specs/` | 機能spec一式 |
-| `designs/screen-template.md` | 画面仕様 |
-| `architecture/adr-template.md` | ADR |
+| Path                                                  | 用途         |
+| ----------------------------------------------------- | ------------ |
+| `requirements/functional-requirement-template.md`     | 機能要件     |
+| `requirements/non-functional-requirement-template.md` | 非機能要件   |
+| `specs/`                                              | 機能spec一式 |
+| `designs/screen-template.md`                          | 画面仕様     |
+| `architecture/adr-template.md`                        | ADR          |
 
 ## 使い方
 
@@ -28,7 +29,7 @@
 spec一式を作る場合:
 
 ```text
-docs/specs/001-feature-name/
+docs/specs/{feature}/
 ├── README.md
 ├── spec.md
 ├── plan.md
@@ -37,7 +38,9 @@ docs/specs/001-feature-name/
 └── api.md
 ```
 
-テンプレートから作る場合は、`docs/templates/specs/` の各ファイルをコピーし、ファイル名から `-template` を外します。コピー後は、`SPEC-XXX`、`Feature Name`、`FR-XXX`、`NFR-XXX`、`<...>` を実際の値に置き換えてください。
+`docs/templates/specs/` の各ファイルをコピーし、ファイル名から `-template`
+を外します。コピー後は、`SPEC-XXX`、`Feature Name`、`FR-XXX`、`NFR-XXX`、`<...>`
+を実際の値に置き換えてください。
 
 ## Template Hygiene
 

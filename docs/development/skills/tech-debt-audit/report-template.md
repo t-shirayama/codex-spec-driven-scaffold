@@ -15,9 +15,9 @@ Generated: YYYY-MM-DD
 
 ## Findings
 
-| ID | Status | Category | File:Line | Severity | Effort | Description | Recommendation |
-|---|---|---|---|---|---|---|---|
-| F001 | NEW | Category | path/to/file:1 | Medium | M | 指摘内容を書く | 改善案を書く |
+| ID   | Status | Category | File:Line      | Severity | Effort | Description    | Recommendation |
+| ---- | ------ | -------- | -------------- | -------- | ------ | -------------- | -------------- |
+| F001 | NEW    | Category | path/to/file:1 | Medium   | M      | 指摘内容を書く | 改善案を書く   |
 
 ## Top Priorities
 
@@ -32,9 +32,9 @@ Generated: YYYY-MM-DD
 
 ## Things That Look Risky But Are Acceptable
 
-| Area | Why It Looked Risky | Why It Is Acceptable |
-|---|---|---|
-| Area | 一見リスクに見えた理由 | 許容できる理由 |
+| Area | Why It Looked Risky    | Why It Is Acceptable |
+| ---- | ---------------------- | -------------------- |
+| Area | 一見リスクに見えた理由 | 許容できる理由       |
 
 ## Open Questions
 

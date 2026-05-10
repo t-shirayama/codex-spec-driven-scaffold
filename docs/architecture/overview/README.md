@@ -8,8 +8,8 @@
 
 ## Components
 
-| Component | 役割 | Notes |
-|---|---|---|
+| Component          | 役割       | Notes      |
+| ------------------ | ---------- | ---------- |
 | `<component-name>` | 責務を書く | 補足を書く |
 
 ## Data and Control Flow

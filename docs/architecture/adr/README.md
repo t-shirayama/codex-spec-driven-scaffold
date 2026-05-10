@@ -18,8 +18,8 @@ Architecture Decision Recordを管理します。
 
 ## ADR List
 
-| ADR | Status | Summary |
-|---|---|---|
+| ADR  | Status   | Summary           |
+| ---- | -------- | ----------------- |
 | 0001 | accepted | ADR運用を開始する |
 
 ## Rule

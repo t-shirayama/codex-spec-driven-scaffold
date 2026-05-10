@@ -4,8 +4,8 @@
 
 ## Flows
 
-| Flow | Source | Destination | Notes |
-|---|---|---|---|
+| Flow          | Source       | Destination  | Notes      |
+| ------------- | ------------ | ------------ | ---------- |
 | `<flow-name>` | 入力元を書く | 出力先を書く | 補足を書く |
 
 ## Risks

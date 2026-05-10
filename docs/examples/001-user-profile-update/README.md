@@ -4,14 +4,14 @@
 
 ## Files
 
-| File | 役割 |
-|---|---|
-| `spec.md` | 背景、スコープ、振る舞い、ACと検証対応 |
-| `plan.md` | 実装方針、リスク、検証方法 |
-| `tasks.md` | Codexが実行する作業単位 |
-| `test-cases.md` | ACに紐づくUT / IT / E2E / Manual |
-| `api.md` | API契約とエラー |
-| `example-codex-prompt.md` | Codexへの依頼文例 |
+| File                      | 役割                                   |
+| ------------------------- | -------------------------------------- |
+| `spec.md`                 | 背景、スコープ、振る舞い、ACと検証対応 |
+| `plan.md`                 | 実装方針、リスク、検証方法             |
+| `tasks.md`                | Codexが実行する作業単位                |
+| `test-cases.md`           | ACに紐づくUT / IT / E2E / Manual       |
+| `api.md`                  | API契約とエラー                        |
+| `example-codex-prompt.md` | Codexへの依頼文例                      |
 
 ## Notes
 

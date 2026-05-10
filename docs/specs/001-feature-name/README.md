@@ -1,18 +1,19 @@
 # SPEC-001 Feature Name
 
-このフォルダは、1つの機能単位の仕様、実装計画、タスク、テスト観点、API情報を管理するためのコピー元です。
+このフォルダは、1つの機能単位の仕様、実装計画、タスク、テスト観点、API情報を管理するサンプルspecです。
 
-利用先プロジェクトでは、このフォルダをコピーし、`001-feature-name` と `Feature Name` を対象機能名へ置き換えてください。コピー後は `spec.md` のfrontmatterを `status: draft` に変更します。
+新しいspecの正式なコピー元は `docs/templates/specs/`
+です。利用先プロジェクトでは、このサンプルを実機能specに置き換えるか、不要であれば削除してください。
 
 ## Files
 
-| File | 役割 |
-|---|---|
-| `spec.md` | frontmatter、背景、スコープ、振る舞い、受け入れ条件 |
-| `plan.md` | 変更対象、実装方針、依存関係、リスク |
-| `tasks.md` | Codex向けの実行チェックリスト |
-| `test-cases.md` | UT、IT、E2Eの確認観点 |
-| `api.md` | APIの追加、変更、利用内容 |
+| File            | 役割                                                |
+| --------------- | --------------------------------------------------- |
+| `spec.md`       | frontmatter、背景、スコープ、振る舞い、受け入れ条件 |
+| `plan.md`       | 変更対象、実装方針、依存関係、リスク                |
+| `tasks.md`      | Codex向けの実行チェックリスト                       |
+| `test-cases.md` | UT、IT、E2Eの確認観点                               |
+| `api.md`        | APIの追加、変更、利用内容                           |
 
 ## Before Implementation
 

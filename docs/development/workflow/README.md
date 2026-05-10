@@ -14,16 +14,17 @@
 
 ## Spec Lifecycle
 
-| Status | Meaning | Next Action |
-|---|---|---|
-| `template` | scaffold内のコピー元 | 利用先では `draft` に変更する |
-| `draft` | 作成中 | Open Questionsを解消する |
-| `review` | 実装前レビュー中 | 受け入れ条件とテスト観点を確認する |
-| `approved` | 実装可能 | Codexまたは開発者へ実装を依頼する |
-| `implemented` | 実装済み | 実行結果と残リスクを記録する |
-| `deprecated` | 廃止 | 代替specやADRへリンクする |
+| Status        | Meaning              | Next Action                        |
+| ------------- | -------------------- | ---------------------------------- |
+| `template`    | scaffold内のコピー元 | 利用先では `draft` に変更する      |
+| `draft`       | 作成中               | Open Questionsを解消する           |
+| `review`      | 実装前レビュー中     | 受け入れ条件とテスト観点を確認する |
+| `approved`    | 実装可能             | Codexまたは開発者へ実装を依頼する  |
+| `implemented` | 実装済み             | 実行結果と残リスクを記録する       |
+| `deprecated`  | 廃止                 | 代替specやADRへリンクする          |
 
-実装依頼できるのは、原則として `status: approved` かつ `blocking_open_questions: false` のspecだけです。
+実装依頼できるのは、原則として `status: approved` かつ `blocking_open_questions: false`
+のspecだけです。
 
 ## Branch and Commit
 

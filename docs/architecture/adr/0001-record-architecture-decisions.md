@@ -12,7 +12,8 @@ accepted
 
 ## Decision
 
-後から変更しづらい設計判断、複数案から選んだ判断、非機能要件に影響する判断は、ADRとして `docs/architecture/adr/` に記録します。
+後から変更しづらい設計判断、複数案から選んだ判断、非機能要件に影響する判断は、ADRとして
+`docs/architecture/adr/` に記録します。
 
 ## Consequences
 
@@ -22,7 +23,7 @@ accepted
 
 ## Alternatives Considered
 
-| Option | Reason Rejected |
-|---|---|
-| specだけに判断を記録する | 機能横断の設計判断を追いづらい |
+| Option                     | Reason Rejected                      |
+| -------------------------- | ------------------------------------ |
+| specだけに判断を記録する   | 機能横断の設計判断を追いづらい       |
 | READMEだけに判断を記録する | 判断の履歴とステータスを管理しづらい |

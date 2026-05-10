@@ -6,9 +6,9 @@
 
 ## Requirements
 
-| ID | Summary | User Value | Status | Related Specs |
-|---|---|---|---|---|
-| FR-XXX | 要件の概要を書く | ユーザーまたは業務にとっての価値を書く | draft | `docs/specs/{feature}/` |
+| ID     | Summary          | User Value                             | Status | Related Specs           |
+| ------ | ---------------- | -------------------------------------- | ------ | ----------------------- |
+| FR-XXX | 要件の概要を書く | ユーザーまたは業務にとっての価値を書く | draft  | `docs/specs/{feature}/` |
 
 ## Notes
 

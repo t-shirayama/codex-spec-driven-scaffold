@@ -8,6 +8,6 @@
 
 ## Threats
 
-| Threat | Impact | Mitigation |
-|---|---|---|
+| Threat     | Impact     | Mitigation |
+| ---------- | ---------- | ---------- |
 | `<threat>` | 影響を書く | 対策を書く |

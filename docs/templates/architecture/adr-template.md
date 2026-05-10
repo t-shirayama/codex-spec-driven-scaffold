@@ -20,9 +20,9 @@ proposed / accepted / deprecated / superseded
 
 ## Alternatives Considered
 
-| Option | Reason Rejected |
-|---|---|
-| 案を書く | 却下理由を書く |
+| Option   | Reason Rejected |
+| -------- | --------------- |
+| 案を書く | 却下理由を書く  |
 
 ## Related
 

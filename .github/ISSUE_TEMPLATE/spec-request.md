@@ -28,8 +28,8 @@ assignees: ""
 
 ## Acceptance Criteria
 
-| AC ID | Acceptance Criteria | Verified By |
-|---|---|---|
+| AC ID  | Acceptance Criteria  | Verified By                        |
+| ------ | -------------------- | ---------------------------------- |
 | AC-001 | 検証可能な条件を書く | UT-001 / IT-001 / E2E-001 / Manual |
 
 ## Test Perspective

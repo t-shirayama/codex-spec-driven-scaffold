@@ -2,13 +2,13 @@
 
 ## Target Areas
 
-| Area | Expected Change |
-|---|---|
+| Area     | Expected Change              |
+| -------- | ---------------------------- |
 | Frontend | 変更がなければ「なし」と書く |
-| Backend | 変更がなければ「なし」と書く |
+| Backend  | 変更がなければ「なし」と書く |
 | Database | 変更がなければ「なし」と書く |
-| API | 変更がなければ「なし」と書く |
-| Docs | 更新対象を書く |
+| API      | 変更がなければ「なし」と書く |
+| Docs     | 更新対象を書く               |
 
 ## Approach
 
@@ -25,8 +25,8 @@
 
 ## Risks
 
-| Risk | Impact | Mitigation |
-|---|---|---|
+| Risk                   | Impact           | Mitigation                  |
+| ---------------------- | ---------------- | --------------------------- |
 | 例: 既存フローへの回帰 | 主要導線が壊れる | 関連E2Eを追加または更新する |
 
 ## Rollout

@@ -10,19 +10,19 @@
 
 ## UI Elements
 
-| Element | Type | Description |
-|---|---|---|
+| Element          | Type                          | Description          |
+| ---------------- | ----------------------------- | -------------------- |
 | `<element-name>` | button / input / table / card | 役割と表示条件を書く |
 
 ## States
 
-| State | Display | Behavior |
-|---|---|---|
-| Initial | 初期表示を書く | 初期表示時の操作可否を書く |
+| State   | Display                | Behavior                             |
+| ------- | ---------------------- | ------------------------------------ |
+| Initial | 初期表示を書く         | 初期表示時の操作可否を書く           |
 | Loading | 読み込み中の表示を書く | 操作可否とタイムアウト時の扱いを書く |
-| Success | 成功時の表示を書く | 次に可能な操作を書く |
-| Error | エラー表示を書く | 再試行や復帰導線を書く |
-| Empty | 空状態の表示を書く | 次の行動を書く |
+| Success | 成功時の表示を書く     | 次に可能な操作を書く                 |
+| Error   | エラー表示を書く       | 再試行や復帰導線を書く               |
+| Empty   | 空状態の表示を書く     | 次の行動を書く                       |
 
 ## Validation
 

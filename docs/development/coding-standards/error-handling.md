@@ -12,4 +12,5 @@
 
 ## Documentation
 
-新しいエラー種別を追加した場合は、関連specの `api.md`、`test-cases.md`、必要に応じて運用runbookを更新する。
+新しいエラー種別を追加した場合は、関連specの
+`api.md`、`test-cases.md`、必要に応じて運用runbookを更新する。

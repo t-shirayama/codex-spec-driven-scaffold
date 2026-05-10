@@ -12,8 +12,8 @@
 
 ## UI Elements
 
-| Element | Type | Description |
-|---|---|---|
+| Element          | Type                          | Description          |
+| ---------------- | ----------------------------- | -------------------- |
 | `<element-name>` | button / input / table / card | 役割と表示条件を書く |
 
 ## Navigation

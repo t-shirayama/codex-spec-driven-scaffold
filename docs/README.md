@@ -6,18 +6,18 @@
 
 ## 構成
 
-| Path | 役割 |
-|---|---|
-| `templates/` | 新しい要件、spec、画面仕様、ADRを作るためのコピー元 |
-| `examples/` | 完成済みspecの記入例 |
-| `product/` | プロダクトの目的、背景、対象ユーザー、用語 |
-| `requirements/` | 機能要件と非機能要件 |
-| `specs/` | 機能単位の仕様、計画、タスク、テスト観点、API情報 |
-| `designs/` | 画面仕様、デザイン資料、画像、UI素材 |
-| `architecture/` | システム設計とADR |
-| `testing/` | テスト戦略、UT、IT、E2E、品質ゲート |
-| `development/` | 開発ガイド、命名規則、設定方針、レビュー観点 |
-| `operations/` | 環境、リリース、監視、障害対応 |
+| Path            | 役割                                                |
+| --------------- | --------------------------------------------------- |
+| `templates/`    | 新しい要件、spec、画面仕様、ADRを作るためのコピー元 |
+| `examples/`     | 完成済みspecの記入例                                |
+| `product/`      | プロダクトの目的、背景、対象ユーザー、用語          |
+| `requirements/` | 機能要件と非機能要件                                |
+| `specs/`        | 機能単位の仕様、計画、タスク、テスト観点、API情報   |
+| `designs/`      | 画面仕様、デザイン資料、画像、UI素材                |
+| `architecture/` | システム設計とADR                                   |
+| `testing/`      | テスト戦略、UT、IT、E2E、品質ゲート                 |
+| `development/`  | 開発ガイド、命名規則、設定方針、レビュー観点        |
+| `operations/`   | 環境、リリース、監視、障害対応                      |
 
 ## 更新ルール
 
@@ -45,4 +45,5 @@
 - `docs/specs/{feature}/test-cases.md`
 - `docs/specs/{feature}/api.md`
 
-UI、設計、運用に関係する場合は、それぞれ `designs/`、`architecture/`、`operations/` も追加で参照させます。
+UI、設計、運用に関係する場合は、それぞれ `designs/`、`architecture/`、`operations/`
+も追加で参照させます。

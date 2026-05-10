@@ -28,4 +28,5 @@ docs/development/skills/tech-debt-audit/SKILL.md に従って、
 
 ## Attribution
 
-This Codex-oriented protocol is a generic adaptation inspired by `ksimback/tech-debt-skill` and refactored for scaffold use.
+This Codex-oriented protocol is a generic adaptation inspired by `ksimback/tech-debt-skill` and
+refactored for scaffold use.

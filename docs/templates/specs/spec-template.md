@@ -10,7 +10,8 @@ blocking_open_questions: true
 
 ## Status
 
-Frontmatterの `status` と `blocking_open_questions` を更新する。実装依頼前は `status: approved`、`blocking_open_questions: false` にする。
+Frontmatterの `status` と `blocking_open_questions` を更新する。実装依頼前は
+`status: approved`、`blocking_open_questions: false` にする。
 
 ## Summary
 
@@ -66,17 +67,17 @@ API変更がない場合は、`api.md` に「API変更なし」と書く。
 
 ## Acceptance Criteria
 
-| AC ID | Acceptance Criteria | Verified By |
-|---|---|---|
-| AC-001 | 主要な正常系が期待通り動作する。 | UT-001, IT-001 |
-| AC-002 | 主要な異常系で、ユーザーまたは呼び出し元が原因を理解できる。 | UT-002, IT-002 |
-| AC-003 | 仕様に対応するテストが追加または更新されている。 | `test-cases.md` |
+| AC ID  | Acceptance Criteria                                                       | Verified By          |
+| ------ | ------------------------------------------------------------------------- | -------------------- |
+| AC-001 | 主要な正常系が期待通り動作する。                                          | UT-001, IT-001       |
+| AC-002 | 主要な異常系で、ユーザーまたは呼び出し元が原因を理解できる。              | UT-002, IT-002       |
+| AC-003 | 仕様に対応するテストが追加または更新されている。                          | `test-cases.md`      |
 | AC-004 | API、画面、設計、運用に影響がある場合、関連ドキュメントが更新されている。 | Documentation checks |
 
 ## Decision Log
 
-| Date | Decision | Reason |
-|---|---|---|
+| Date       | Decision       | Reason         |
+| ---------- | -------------- | -------------- |
 | YYYY-MM-DD | 決定内容を書く | 判断理由を書く |
 
 ## Open Questions

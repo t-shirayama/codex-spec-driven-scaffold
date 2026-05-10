@@ -30,10 +30,11 @@ Codexを活用して仕様駆動開発を進めるためのドキュメントsca
 2. `README.md`、`AGENTS.md`、`docs/product/` を利用先プロジェクトの名前と目的に合わせて更新する。
 3. `docs/development/commands/README.md` に実際の install / lint / test / build コマンドを書く。
 4. `docs/requirements/` に最初の機能要件と非機能要件を追加する。
-5. `docs/templates/specs/` または `docs/specs/001-feature-name/` をコピーして、対象機能のspecフォルダを作る。
-6. コピー後のspec frontmatterで `status: draft` に変更し、受け入れ条件とテスト観点を埋める。
-7. Open Questionsを解消したら `status: approved`、`blocking_open_questions: false` にする。
-8. Codexに `AGENTS.md` と対象specを読ませて、実装、テスト、ドキュメント更新を依頼する。
+5. `docs/templates/specs/` をコピーして、対象機能のspecフォルダを作る。
+6. コピー後のファイル名から `-template` を外し、spec frontmatterで `status: draft` に変更する。
+7. 受け入れ条件とテスト観点を埋める。
+8. Open Questionsを解消したら `status: approved`、`blocking_open_questions: false` にする。
+9. Codexに `AGENTS.md` と対象specを読ませて、実装、テスト、ドキュメント更新を依頼する。
 
 ```text
 AGENTS.md を読んだ上で、
@@ -48,6 +49,7 @@ docs/specs/{feature}/ の内容に従って実装してください。
 
 ```text
 AGENTS.md
+LICENSE
 README.md
 .github/
 PROPOSAL.md
@@ -66,22 +68,23 @@ docs/
 └── operations/
 ```
 
-| Path | 役割 |
-|---|---|
-| `AGENTS.md` | Codex向けの作業ルール、参照順序、完了条件 |
-| `.github/` | spec起票とPR確認に使うGitHubテンプレート |
-| `PROPOSAL.md` | OpenAI向け提案資料 |
-| `docs/` | 仕様駆動開発に必要なドキュメント全体 |
-| `docs/templates/` | 要件、spec、画面仕様、ADRのコピー元 |
-| `docs/examples/` | 完成済みspecの例 |
-| `docs/product/` | プロダクトの目的、背景、用語 |
-| `docs/requirements/` | 機能要件、非機能要件 |
-| `docs/specs/` | 機能単位の仕様、計画、タスク、テスト観点、API情報 |
-| `docs/designs/` | 画面仕様、デザイン資料、画像、UI素材 |
-| `docs/architecture/` | システム設計、ADR |
-| `docs/testing/` | テスト戦略、UT、IT、E2E、品質ゲート |
-| `docs/development/` | 開発ルール、命名規則、レビュー観点、Codex用スキル |
-| `docs/operations/` | 環境、リリース、監視、障害対応 |
+| Path                 | 役割                                              |
+| -------------------- | ------------------------------------------------- |
+| `AGENTS.md`          | Codex向けの作業ルール、参照順序、完了条件         |
+| `LICENSE`            | 利用条件を示すMITライセンス                       |
+| `.github/`           | spec起票とPR確認に使うGitHubテンプレート          |
+| `PROPOSAL.md`        | OpenAI向け提案資料                                |
+| `docs/`              | 仕様駆動開発に必要なドキュメント全体              |
+| `docs/templates/`    | 要件、spec、画面仕様、ADRのコピー元               |
+| `docs/examples/`     | 完成済みspecの例                                  |
+| `docs/product/`      | プロダクトの目的、背景、用語                      |
+| `docs/requirements/` | 機能要件、非機能要件                              |
+| `docs/specs/`        | 機能単位の仕様、計画、タスク、テスト観点、API情報 |
+| `docs/designs/`      | 画面仕様、デザイン資料、画像、UI素材              |
+| `docs/architecture/` | システム設計、ADR                                 |
+| `docs/testing/`      | テスト戦略、UT、IT、E2E、品質ゲート               |
+| `docs/development/`  | 開発ルール、命名規則、レビュー観点、Codex用スキル |
+| `docs/operations/`   | 環境、リリース、監視、障害対応                    |
 
 ## 仕様駆動開発の流れ
 
@@ -101,11 +104,13 @@ docs/
 - 機能要件: `docs/requirements/functional/`
 - 非機能要件: `docs/requirements/non-functional/`
 
-`feature-area-01` などの汎用名は、利用先プロジェクトでは `billing`、`account`、`notification` のような具体名へ置き換えてください。
+`feature-area-01` などの汎用名は、利用先プロジェクトでは `billing`、`account`、`notification`
+のような具体名へ置き換えてください。
 
 ### 3. specを作る
 
-機能単位で `docs/specs/` にspecフォルダを作ります。最初は `docs/specs/001-feature-name/` をフォルダごとコピーするか、`docs/templates/specs/` の各テンプレートを使って作るのが簡単です。
+機能単位で `docs/specs/` にspecフォルダを作ります。新しいspecは `docs/templates/specs/`
+の各テンプレートをコピーして作ります。コピー後は、ファイル名から `-template` を外してください。
 
 ```text
 docs/specs/001-feature-name/
@@ -117,21 +122,28 @@ docs/specs/001-feature-name/
 └── api.md
 ```
 
-| File | 書くこと |
-|---|---|
-| `spec.md` | frontmatter、背景、スコープ、振る舞い、受け入れ条件、仕様判断 |
-| `plan.md` | 変更対象、実装方針、依存関係、リスク、ロールアウト |
-| `tasks.md` | Codexが順に実行できるチェックリスト |
-| `test-cases.md` | UT、IT、E2Eで確認する観点 |
-| `api.md` | 追加、変更、利用するAPIとエラー仕様 |
+`docs/specs/001-feature-name/`
+は、テンプレートから作ったspecフォルダの形を確認するためのサンプルです。正式なコピー元は
+`docs/templates/specs/` です。
+
+| File            | 書くこと                                                      |
+| --------------- | ------------------------------------------------------------- |
+| `spec.md`       | frontmatter、背景、スコープ、振る舞い、受け入れ条件、仕様判断 |
+| `plan.md`       | 変更対象、実装方針、依存関係、リスク、ロールアウト            |
+| `tasks.md`      | Codexが順に実行できるチェックリスト                           |
+| `test-cases.md` | UT、IT、E2Eで確認する観点                                     |
+| `api.md`        | 追加、変更、利用するAPIとエラー仕様                           |
 
 受け入れ条件には `AC-001` のようなIDを付け、`test-cases.md` の `Verified AC` と対応させます。
 
 ### 4. 画面や設計を紐付ける
 
-UIが関係する場合は `docs/designs/screens/` に画面仕様を書き、`spec.md` の `Related Designs` へリンクします。
+UIが関係する場合は `docs/designs/screens/` に画面仕様を書き、`spec.md` の `Related Designs`
+へリンクします。
 
-設計判断が関係する場合は `docs/architecture/` を更新します。後から変更しづらい判断、複数案から選んだ判断、チームで共有すべきトレードオフは `docs/architecture/adr/` にADRとして残します。
+設計判断が関係する場合は `docs/architecture/`
+を更新します。後から変更しづらい判断、複数案から選んだ判断、チームで共有すべきトレードオフは
+`docs/architecture/adr/` にADRとして残します。
 
 ### 5. Codexへ依頼する
 
@@ -163,20 +175,21 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 
 よく使う依頼文は `docs/development/workflow/codex-prompts.md` にまとめています。
 
-完成例は `docs/examples/001-user-profile-update/` を参照してください。抽象テンプレートだけではなく、実際に埋めたspecの粒度を確認できます。
+完成例は `docs/examples/001-user-profile-update/`
+を参照してください。抽象テンプレートだけではなく、実際に埋めたspecの粒度を確認できます。
 
 ## ドキュメント更新の判断
 
-| 変更内容 | 更新先 |
-|---|---|
-| 機能の振る舞いが変わる | `docs/specs/{feature}/spec.md`、`test-cases.md`、`tasks.md` |
-| APIが増える、変わる | `docs/specs/{feature}/api.md` |
-| 画面や導線が変わる | `docs/designs/screens/` |
-| 要件そのものが変わる | `docs/requirements/` |
-| 設計判断をした | `docs/architecture/adr/` |
-| テスト方針や品質ゲートが変わる | `docs/testing/` |
-| 環境、リリース、監視に影響する | `docs/operations/` |
-| 開発ルールが変わる | `docs/development/` |
+| 変更内容                       | 更新先                                                      |
+| ------------------------------ | ----------------------------------------------------------- |
+| 機能の振る舞いが変わる         | `docs/specs/{feature}/spec.md`、`test-cases.md`、`tasks.md` |
+| APIが増える、変わる            | `docs/specs/{feature}/api.md`                               |
+| 画面や導線が変わる             | `docs/designs/screens/`                                     |
+| 要件そのものが変わる           | `docs/requirements/`                                        |
+| 設計判断をした                 | `docs/architecture/adr/`                                    |
+| テスト方針や品質ゲートが変わる | `docs/testing/`                                             |
+| 環境、リリース、監視に影響する | `docs/operations/`                                          |
+| 開発ルールが変わる             | `docs/development/`                                         |
 
 ## 実装前のガード
 
@@ -199,17 +212,17 @@ blocking_open_questions: false
 
 ## 利用先プロジェクトで最初に置き換えるもの
 
-| 対象 | 置き換える内容 |
-|---|---|
-| `README.md` | プロジェクト名、概要、セットアップ方法 |
-| `AGENTS.md` | Codexが読むべき実装ルール、参照順序、完了条件 |
-| `docs/product/` | 目的、対象ユーザー、用語 |
-| `docs/requirements/functional/feature-area-*` | 実際の機能領域名と要件 |
-| `docs/development/commands/README.md` | 利用先プロジェクトの実コマンド |
-| `docs/development/repository-structure/README.md` | 実装コードのディレクトリ構成 |
-| `docs/specs/001-feature-name/` | 最初の実機能spec、または削除してテンプレートだけ運用 |
-| `docs/designs/screens/screen-*` | 実際の画面名、または不要なら削除 |
-| `PROPOSAL.md` | 提案先や利用実績に合わせたProblem、Benefits、Evidence |
+| 対象                                              | 置き換える内容                                                   |
+| ------------------------------------------------- | ---------------------------------------------------------------- |
+| `README.md`                                       | プロジェクト名、概要、セットアップ方法                           |
+| `AGENTS.md`                                       | Codexが読むべき実装ルール、参照順序、完了条件                    |
+| `docs/product/`                                   | 目的、対象ユーザー、用語                                         |
+| `docs/requirements/functional/feature-area-*`     | 実際の機能領域名と要件                                           |
+| `docs/development/commands/README.md`             | 利用先プロジェクトの実コマンド                                   |
+| `docs/development/repository-structure/README.md` | 実装コードのディレクトリ構成                                     |
+| `docs/specs/001-feature-name/`                    | scaffold内のサンプルspec。実運用では実機能specに置き換えるか削除 |
+| `docs/designs/screens/screen-*`                   | 実際の画面名、または不要なら削除                                 |
+| `PROPOSAL.md`                                     | 提案先や利用実績に合わせたProblem、Benefits、Evidence            |
 
 ## 利用先プロジェクトで使い始める前のチェック
 
@@ -218,11 +231,12 @@ blocking_open_questions: false
 - [ ] `docs/product/vision/README.md` に目的と対象ユーザーが書かれている
 - [ ] `docs/product/glossary/` に重要用語が登録されている
 - [ ] `docs/requirements/functional/feature-area-*` が実際の機能領域名になっている
-- [ ] `docs/specs/001-feature-name/` をコピーして最初の実機能specが作られている
+- [ ] `docs/templates/specs/` から最初の実機能specが作られている
 - [ ] コピー後のspec frontmatterが `draft` または `approved` に変わっている
 - [ ] 実装対象specは `status: approved`、`blocking_open_questions: false` になっている
 - [ ] Acceptance CriteriaとTest CaseがIDで対応している
-- [ ] 実装リポジトリの構成に合わせて `docs/development/repository-structure/README.md` が更新されている
+- [ ] 実装リポジトリの構成に合わせて `docs/development/repository-structure/README.md`
+      が更新されている
 - [ ] よく使うコマンドが `docs/development/commands/README.md` に書かれている
 - [ ] placeholder checkを実行し、汎用名や仮コマンドの置き換え漏れを確認している
 - [ ] `.github/PULL_REQUEST_TEMPLATE.md` のチェック項目がチームのレビュー基準に合っている
@@ -239,7 +253,8 @@ docs/development/skills/tech-debt-audit/
 └── report-template.md
 ```
 
-技術負債監査、コードヘルスチェック、保守性レビューを依頼するときは、`docs/development/skills/tech-debt-audit/SKILL.md` を参照するようCodexに伝えてください。
+技術負債監査、コードヘルスチェック、保守性レビューを依頼するときは、`docs/development/skills/tech-debt-audit/SKILL.md`
+を参照するようCodexに伝えてください。
 
 ## 運用のコツ
 

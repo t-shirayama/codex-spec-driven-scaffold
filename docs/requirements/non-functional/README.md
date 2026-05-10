@@ -6,14 +6,14 @@
 
 ## Categories
 
-| Category | 例 |
-|---|---|
-| `performance` | 応答時間、スループット、リソース使用量 |
-| `security` | 認証、認可、監査、脆弱性対応 |
-| `availability` | 可用性、復旧、冗長化 |
-| `usability` | 使いやすさ、アクセシビリティ |
-| `maintainability` | 保守性、拡張性、技術的負債 |
-| `observability` | ログ、メトリクス、トレーシング、監視 |
+| Category          | 例                                     |
+| ----------------- | -------------------------------------- |
+| `performance`     | 応答時間、スループット、リソース使用量 |
+| `security`        | 認証、認可、監査、脆弱性対応           |
+| `availability`    | 可用性、復旧、冗長化                   |
+| `usability`       | 使いやすさ、アクセシビリティ           |
+| `maintainability` | 保守性、拡張性、技術的負債             |
+| `observability`   | ログ、メトリクス、トレーシング、監視   |
 
 ## 書き方
 

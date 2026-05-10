@@ -5,13 +5,13 @@
 ## Environments
 
 | Environment | Purpose | Differences |
-|---|---|---|
-| local | 開発 | 差分を書く |
-| test | テスト | 差分を書く |
-| production | 本番 | 差分を書く |
+| ----------- | ------- | ----------- |
+| local       | 開発    | 差分を書く  |
+| test        | テスト  | 差分を書く  |
+| production  | 本番    | 差分を書く  |
 
 ## Environment Variables
 
-| Name | Required | Environment | Notes |
-|---|---|---|---|
-| `EXAMPLE_ENV` | no | local / test / production | 説明を書く |
+| Name          | Required | Environment               | Notes      |
+| ------------- | -------- | ------------------------- | ---------- |
+| `EXAMPLE_ENV` | no       | local / test / production | 説明を書く |

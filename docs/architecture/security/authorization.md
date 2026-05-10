@@ -9,6 +9,6 @@
 
 ## Matrix
 
-| Actor | Action | Resource | Allowed |
-|---|---|---|---|
+| Actor     | Action     | Resource   | Allowed  |
+| --------- | ---------- | ---------- | -------- |
 | `<actor>` | 操作を書く | 対象を書く | yes / no |

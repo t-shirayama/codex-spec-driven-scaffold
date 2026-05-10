@@ -11,6 +11,6 @@
 
 ## Environment Variables
 
-| Name | Required | Default | Used In | Notes |
-|---|---|---|---|---|
-| `EXAMPLE_ENV` | no | none | local / test / production | 説明を書く |
+| Name          | Required | Default | Used In                   | Notes      |
+| ------------- | -------- | ------- | ------------------------- | ---------- |
+| `EXAMPLE_ENV` | no       | none    | local / test / production | 説明を書く |

@@ -22,7 +22,8 @@ rg -n \
 
 ## Expected Result
 
-利用先プロジェクトで実運用するファイルには、検索結果が残らない状態を目指します。検索結果がある場合、スクリプトはexit code 1で終了します。
+利用先プロジェクトで実運用するファイルには、検索結果が残らない状態を目指します。検索結果がある場合、スクリプトはexit
+code 1で終了します。
 
 このscaffoldリポジトリ自体では、コピー元として意図的に汎用名や仮IDを含むため、検索結果が出ます。
 
@@ -31,4 +32,5 @@ rg -n \
 - `docs/templates/**` はコピー元なので検索対象から外します。
 - `docs/examples/**` は完成例なので検索対象から外します。
 - `docs/specs/001-feature-name/` はサンプルなので検索対象から外します。
-- `<install-command>` などは、`docs/development/commands/README.md` で実際のコマンドに置き換えてください。
+- `<install-command>` などは、`docs/development/commands/README.md`
+  で実際のコマンドに置き換えてください。

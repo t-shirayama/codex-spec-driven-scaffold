@@ -6,16 +6,16 @@
 
 ## 構成
 
-| Path | 役割 |
-|---|---|
-| `overview/` | 全体構成 |
-| `data-model/` | データモデル、データフロー |
-| `frontend/` | フロントエンド設計 |
-| `backend/` | バックエンド設計 |
-| `security/` | 認証、認可、脅威モデル |
-| `testing/` | テストアーキテクチャ |
-| `infra/` | インフラ、外部サービス |
-| `adr/` | Architecture Decision Record |
+| Path          | 役割                         |
+| ------------- | ---------------------------- |
+| `overview/`   | 全体構成                     |
+| `data-model/` | データモデル、データフロー   |
+| `frontend/`   | フロントエンド設計           |
+| `backend/`    | バックエンド設計             |
+| `security/`   | 認証、認可、脅威モデル       |
+| `testing/`    | テストアーキテクチャ         |
+| `infra/`      | インフラ、外部サービス       |
+| `adr/`        | Architecture Decision Record |
 
 ## ADRに残す判断
 

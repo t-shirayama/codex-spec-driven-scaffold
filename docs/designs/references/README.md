@@ -4,6 +4,6 @@
 
 ## References
 
-| Name | URL / Location | Related Screens | Notes |
-|---|---|---|---|
+| Name               | URL / Location          | Related Screens                  | Notes      |
+| ------------------ | ----------------------- | -------------------------------- | ---------- |
 | `<reference-name>` | URLまたは保存場所を書く | `docs/designs/screens/{screen}/` | 補足を書く |
