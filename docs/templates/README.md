@@ -45,4 +45,4 @@ docs/specs/001-feature-name/
 - 利用先プロジェクトで使うサンプル値は、サンプルであることが分かる名前にする。
 - 空欄のまま残さず、「なし」「未定」「別specで扱う」のいずれかを明記する。
 - チームの運用が決まったら、テンプレートより利用先プロジェクトのルールを優先する。
-- テンプレートをコピーした後は、`docs/development/commands/placeholder-check.md` の検索式で置き換え漏れを確認する。
+- テンプレートをコピーした後は、`sh scripts/check-placeholders.sh` で置き換え漏れを確認する。
