@@ -4,8 +4,16 @@
 
 ## Command
 
+macOS / Linux / Git Bash:
+
 ```sh
 sh scripts/check-placeholders.sh
+```
+
+Windows PowerShell:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/check-placeholders.ps1
 ```
 
 スクリプトを使わずに直接実行する場合:

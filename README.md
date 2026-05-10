@@ -24,9 +24,23 @@ Codexを活用して仕様駆動開発を進めるためのドキュメントsca
 
 このリポジトリ自体にはアプリケーションコードを含めません。利用先プロジェクトでは、このdocs構成を実装コードのリポジトリへ持ち込み、プロダクト固有の名前、要件、コマンド、設計に置き換えて使います。
 
+このREADMEは、導入と全体像の入口です。specの書き方、Codexへの依頼文、レビュー観点、コマンドなどの詳細は `docs/` 配下の各READMEを正本として管理します。
+
+## GitHubテンプレートリポジトリとして使う
+
+このリポジトリは、GitHubのテンプレートリポジトリとして設定済みです。forkではなくテンプレートから新しいリポジトリを作ると、利用先プロジェクトとして始めやすくなります。
+
+1. GitHubのリポジトリ画面で `Use this template` を押す。
+2. `Create a new repository` を選ぶ。
+3. Owner、Repository name、公開範囲を指定して作成する。
+4. 作成された新しいリポジトリをcloneする。
+5. `README.md`、`AGENTS.md`、`docs/product/` などを利用先プロジェクトの内容に置き換える。
+
+テンプレートから作ったリポジトリには、このscaffoldのGit履歴は引き継がれません。scaffold自体に変更を提案したい場合だけ、forkやpull requestを使ってください。
+
 ## 最短セットアップ
 
-1. このリポジトリをテンプレートとしてコピーする。
+1. GitHubの `Use this template` から利用先リポジトリを作る。
 2. `README.md`、`AGENTS.md`、`docs/product/` を利用先プロジェクトの名前と目的に合わせて更新する。
 3. `docs/development/commands/README.md` に実際の install / lint / test / build コマンドを書く。
 4. `docs/requirements/` に最初の機能要件と非機能要件を追加する。
@@ -36,14 +50,23 @@ Codexを活用して仕様駆動開発を進めるためのドキュメントsca
 8. Open Questionsを解消したら `status: approved`、`blocking_open_questions: false` にする。
 9. Codexに `AGENTS.md` と対象specを読ませて、実装、テスト、ドキュメント更新を依頼する。
 
-```text
-AGENTS.md を読んだ上で、
-docs/specs/{feature}/ の内容に従って実装してください。
+詳細な進め方は `docs/development/workflow/README.md`、依頼文例は
+`docs/development/workflow/codex-prompts.md` を参照してください。
 
-対象specは status: approved、blocking_open_questions: false です。
-実装、テスト、必要なドキュメント更新まで行ってください。
-仕様にない振る舞いが必要に見える場合は、最小限の仮定を明示してください。
-```
+## 情報の置き場所
+
+同じルールを複数箇所で管理しないため、詳細は次の場所を正本にします。
+
+| 知りたいこと                       | 正本                                                        |
+| ---------------------------------- | ----------------------------------------------------------- |
+| docs全体の構成と更新ルール         | `docs/README.md`                                            |
+| specの構成、frontmatter、ステータス | `docs/specs/README.md`                                      |
+| テンプレートのコピー方法           | `docs/templates/README.md`                                  |
+| Codexへの依頼文例                  | `docs/development/workflow/codex-prompts.md`                |
+| 開発コマンド                       | `docs/development/commands/README.md`                       |
+| レビュー観点                       | `docs/development/review/README.md`                         |
+| プレースホルダー確認               | `docs/development/commands/placeholder-check.md`            |
+| 技術負債監査                       | `docs/development/skills/tech-debt-audit/SKILL.md`          |
 
 ## フォルダ構成
 
@@ -88,97 +111,20 @@ docs/
 
 ## 仕様駆動開発の流れ
 
-### 1. プロダクトの前提を置く
+1. `docs/product/` にプロダクトの目的、対象ユーザー、重要用語を書く。
+2. `docs/requirements/` に機能要件と非機能要件を書く。
+3. `docs/templates/specs/` をコピーして `docs/specs/{feature}/` を作る。
+4. `spec.md`、`plan.md`、`tasks.md`、`test-cases.md`、`api.md` を埋める。
+5. Open Questionsを解消し、実装対象specを `status: approved`、`blocking_open_questions: false` にする。
+6. Codexに `AGENTS.md` と対象specを読ませ、実装、テスト、必要なドキュメント更新まで依頼する。
 
-`docs/product/` に、プロダクトの目的、対象ユーザー、重要な用語を書きます。
-
-- `docs/product/vision/README.md`
-- `docs/product/glossary/README.md`
-
-ここが曖昧だと、Codexが同じ言葉を別の意味で扱いやすくなります。最初は短くてかまいません。
-
-### 2. 要件を定義する
-
-`docs/requirements/` に、システムが満たすべき要件を書きます。
-
-- 機能要件: `docs/requirements/functional/`
-- 非機能要件: `docs/requirements/non-functional/`
-
-`feature-area-01` などの汎用名は、利用先プロジェクトでは `billing`、`account`、`notification`
-のような具体名へ置き換えてください。
-
-### 3. specを作る
-
-機能単位で `docs/specs/` にspecフォルダを作ります。新しいspecは `docs/templates/specs/`
-の各テンプレートをコピーして作ります。コピー後は、ファイル名から `-template` を外してください。
-
-```text
-docs/specs/001-feature-name/
-├── README.md
-├── spec.md
-├── plan.md
-├── tasks.md
-├── test-cases.md
-└── api.md
-```
-
-`docs/specs/001-feature-name/`
-は、テンプレートから作ったspecフォルダの形を確認するためのサンプルです。正式なコピー元は
-`docs/templates/specs/` です。
-
-| File            | 書くこと                                                      |
-| --------------- | ------------------------------------------------------------- |
-| `spec.md`       | frontmatter、背景、スコープ、振る舞い、受け入れ条件、仕様判断 |
-| `plan.md`       | 変更対象、実装方針、依存関係、リスク、ロールアウト            |
-| `tasks.md`      | Codexが順に実行できるチェックリスト                           |
-| `test-cases.md` | UT、IT、E2Eで確認する観点                                     |
-| `api.md`        | 追加、変更、利用するAPIとエラー仕様                           |
-
-受け入れ条件には `AC-001` のようなIDを付け、`test-cases.md` の `Verified AC` と対応させます。
-
-### 4. 画面や設計を紐付ける
-
-UIが関係する場合は `docs/designs/screens/` に画面仕様を書き、`spec.md` の `Related Designs`
-へリンクします。
-
-設計判断が関係する場合は `docs/architecture/`
-を更新します。後から変更しづらい判断、複数案から選んだ判断、チームで共有すべきトレードオフは
-`docs/architecture/adr/` にADRとして残します。
-
-### 5. Codexへ依頼する
-
-Codexには対象specを明示します。曖昧な依頼より、参照先を固定した依頼の方が安定します。実装を依頼するときは、仕様だけでなくテストとドキュメント更新も同じ依頼に含めます。
-
-```text
-AGENTS.md を読んだ上で、
-docs/specs/{feature}/ の内容に従って実装してください。
-
-対象specは status: approved、blocking_open_questions: false です。
-実装、テスト、必要なドキュメント更新まで行ってください。
-仕様にない振る舞いが必要に見える場合は、最小限の仮定を明示してください。
-```
-
-UI変更を含む場合:
-
-```text
-docs/designs/screens/{screen}/ も参照してください。
-画面仕様に不足があれば、仮定を明示して関連ドキュメントも更新してください。
-```
-
-レビューを依頼する場合:
-
-```text
-AGENTS.md と docs/specs/{feature}/ を読んだ上で、
-実装差分をレビューしてください。
-仕様逸脱、テスト不足、ドキュメント更新漏れを優先して指摘してください。
-```
-
-よく使う依頼文は `docs/development/workflow/codex-prompts.md` にまとめています。
-
-完成例は `docs/examples/001-user-profile-update/`
-を参照してください。抽象テンプレートだけではなく、実際に埋めたspecの粒度を確認できます。
+specの詳しい構成とステータスは `docs/specs/README.md`、全体の作業フローは
+`docs/development/workflow/README.md`、完成例は `docs/examples/001-user-profile-update/`
+を参照してください。
 
 ## ドキュメント更新の判断
+
+以下はクイックリファレンスです。更新ルールの正本は `docs/README.md` です。
 
 | 変更内容                       | 更新先                                                      |
 | ------------------------------ | ----------------------------------------------------------- |
@@ -194,6 +140,7 @@ AGENTS.md と docs/specs/{feature}/ を読んだ上で、
 ## 実装前のガード
 
 Codexに実装を依頼する対象specは、次の状態にします。
+詳しいspec lifecycleとfrontmatterの定義は `docs/specs/README.md` を参照してください。
 
 ```yaml
 ---
@@ -208,7 +155,7 @@ blocking_open_questions: false
 - `status: approved` でないspecは、実装ではなくspec整備の対象です。
 - `blocking_open_questions: true` のspecは、未決事項を解消してから実装します。
 - Acceptance Criteriaの `Verified By` に、対応するテストIDまたは手動確認IDを書きます。
-- `sh scripts/check-placeholders.sh` で、置き換え漏れを確認します。
+- `docs/development/commands/placeholder-check.md` に従って、置き換え漏れを確認します。
 
 ## 利用先プロジェクトで最初に置き換えるもの
 

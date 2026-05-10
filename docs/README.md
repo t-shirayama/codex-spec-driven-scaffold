@@ -39,6 +39,7 @@
 - `docs/development/coding-standards/README.md`
 - `docs/development/naming/README.md`
 - `docs/development/commands/README.md`
+- `docs/specs/{feature}/README.md`
 - `docs/specs/{feature}/spec.md`
 - `docs/specs/{feature}/plan.md`
 - `docs/specs/{feature}/tasks.md`
